@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context="org.mcaprotect.broker.fragments.DealPipelineFragment">
+
+
+    <TextView
+        android:id="@+id/screen_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deal Fragment"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/spinner"
+        />
+    <TextView
+        android:id="@+id/instruction_textview"
+        android:layout_below="@+id/screen_title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/deal_pipeline_instruction"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/instruction_textview"
+        android:id="@+id/deal_pipeline_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Broker</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!--Dasboard strings-->
+    <string name="deal_pipeline">Deal Pipeline</string>
+    <string name="performance_comparison">Performance Comparison</string>
+    <string name="deals_funded">Deals Funded</string>
+    <string name="deal_pipeline_instruction">Take control of your pipeline and fund more deals. View every application and their status below.</string>
+
+</resources>
