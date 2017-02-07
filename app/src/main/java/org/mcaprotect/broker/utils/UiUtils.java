@@ -1,6 +1,9 @@
 package org.mcaprotect.broker.utils;
 
+import android.graphics.Typeface;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -19,6 +22,69 @@ public class UiUtils {
 
     private UiUtils() {
 
+    }
+
+    public static void mediumButton(Button[] viewFields) {
+        for (Button fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.medium.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void mediumTextView(TextView[] viewFields) {
+        for (TextView fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.medium.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void mediumEditView(EditText[] viewFields) {
+        for (EditText fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.medium.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void regularButton(Button[] viewFields) {
+        for (Button fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.regular.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void regularTextView(TextView[] viewFields) {
+        for (TextView fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.regular.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void regularEditView(EditText[] viewFields) {
+        for (EditText fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.regular.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void lightButton(Button[] viewFields) {
+        for (Button fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.light.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void lightTextView(TextView[] viewFields) {
+        for (TextView fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.light.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void lightEditView(EditText[] viewFields) {
+        for (EditText fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.light.ttf");
+            fields.setTypeface(typeface);
+        }
     }
 
     public static void showErrorBanner (TextView textView, String message) {

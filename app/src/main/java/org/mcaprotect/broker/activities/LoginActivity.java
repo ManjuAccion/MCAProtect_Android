@@ -15,7 +15,8 @@ import org.mcaprotect.broker.utils.Utils;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView mErrorBanner, mAboutUsTextview, mTermsConditionsTextview, mPrivacyTextview, mNewUserTextview, mForgotPasswordTextview;
+    private TextView mErrorBanner, mAboutUsTextview, mTermsConditionsTextview, mPrivacyTextview, mNewUserTextview,
+            mForgotPasswordTextview, mLoginTextview;
     private EditText mEmailEdittext, mPasswordEdittext;
     private Button mLoginButton;
     private NavigationUtils mNavigationUtility;
@@ -24,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setupNavBar();
+        //setupNavBar();
         setUpLayout();
     }
 
@@ -39,11 +40,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mPasswordEdittext = (EditText) findViewById(R.id.password_edittext);
         mLoginButton = (Button) findViewById(R.id.login_button);
 
+        mLoginTextview = (TextView) findViewById(R.id.login_textview);
         mForgotPasswordTextview = (TextView) findViewById(R.id.forgot_password_textview);
         mNewUserTextview = (TextView) findViewById(R.id.new_user_textview);
         mAboutUsTextview = (TextView) findViewById(R.id.about_us_textview);
         mTermsConditionsTextview = (TextView) findViewById(R.id.terms_conditions_textview);
         mPrivacyTextview = (TextView) findViewById(R.id.privacy_textview);
+
+
+        UiUtils.mediumTextView(new TextView[]{mLoginTextview});
 
         mLoginButton.setOnClickListener(this);
         mForgotPasswordTextview.setOnClickListener(this);
