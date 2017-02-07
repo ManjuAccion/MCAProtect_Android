@@ -17,4 +17,15 @@
     <string name="deals_funded">Deals Funded</string>
     <string name="deal_pipeline_instruction">Take control of your pipeline and fund more deals. View every application and their status below.</string>
 
+
+    <!--Loging screen-->
+    <string name="mca_protect_message">\u00a9 2017 MCA Protect All right reserved</string>
+    <string name="privacy_message">privacy</string>
+    <string name="terms_conditions">Terms &amp; Conditions</string>
+    <string name="aboutus_message">About Us</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="new_user">New User?</string>
+    <string name="login">Login</string>
+    <string name="error_valid_mail">Please enter a valid email address</string>
+    <string name="error_password">Please enter valid password</string>
 </resources>
