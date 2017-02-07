@@ -12,4 +12,22 @@
     <color name="about_us_tc_privacy">#817B7A</color>
     <color name="footer_color">#ABB0B4</color>
 
+
+
+    <color name="app_red">#A32A2A</color>
+    <color name="app_green">#339966</color>
+    <color name="app_gray">#4B4B4B</color>
+    <color name="app_gray_80_percent">#6F6F6F</color>
+    <color name="app_gray_60_percent">#939393</color>
+    <color name="app_gray_20_percent">#B7B7B7</color>
+    <color name="app_gray_10_percent">#DBDBDB</color>
+
+    <color name="app_blue">#2D3943</color>
+    <color name="app_blue_80_percent">#576169</color>
+    <color name="app_blue_60_percent">#81888E</color>
+    <color name="app_blue_20_percent">#ABB0B4</color>
+    <color name="app_blue_10_percent">#D5D7D9</color>
+
+
+
 </resources>
