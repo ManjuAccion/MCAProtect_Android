@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="0dp"
+    android:orientation="horizontal">
+
+
+    <View
+        android:id="@+id/left_strip_view"
+        android:layout_width="6dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/left_strip_with_orange" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corner_with_white_background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/category_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New"
+                android:textColor="@color/app_red"
+                android:textSize="@dimen/heading_2_size" />
+
+            <TextView
+                android:id="@+id/deal_value_label_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/category_textview"
+                android:layout_marginTop="5dp"
+                android:text="Deal Value"
+                android:textColor="@color/app_gray_60_percent"
+                android:textSize="@dimen/text_2_size" />
+
+            <TextView
+                android:id="@+id/deal_value_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/deal_value_label_textview"
+                android:layout_marginTop="2dp"
+                android:text="$150008"
+                android:textColor="@color/app_gray_80_percent"
+                android:textSize="@dimen/text_2_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/number_of_applications_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="21"
+                android:textColor="@color/app_green"
+                android:textSize="@dimen/heading_2_size" />
+
+            <TextView
+                android:id="@+id/average_value_label_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/number_of_applications_textview"
+                android:layout_marginTop="5dp"
+                android:text="Average Value"
+                android:textColor="@color/app_gray_60_percent"
+                android:textSize="@dimen/text_2_size" />
+
+            <TextView
+                android:id="@+id/average_value_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/average_value_label_textview"
+                android:layout_marginTop="2dp"
+                android:text="$150008"
+                android:textColor="@color/app_gray_80_percent"
+                android:textSize="@dimen/text_2_size"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

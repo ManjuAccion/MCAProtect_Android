@@ -8,7 +8,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
 
-    <dimen name="bottom_nav_height">60dp</dimen>
+    <dimen name="bottom_nav_height">45dp</dimen>
 
 
     <!--common-->
@@ -28,4 +28,13 @@
     <dimen name="remember_password">16dp</dimen>
     <dimen name="forgot_password">18dp</dimen>
     <dimen name="about_us_tc_privacy">14dp</dimen>
+
+
+    <dimen name="heading_1_size">22sp</dimen>
+    <dimen name="heading_2_size">20sp</dimen>
+    <dimen name="text_1_size">16sp</dimen>
+    <dimen name="text_2_size">14sp</dimen>
+    <dimen name="footer_size">12sp</dimen>
+
+
 </resources>

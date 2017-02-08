@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.fragments.DealPipelineFragment;
@@ -29,9 +30,15 @@ public class DashboardActivity extends AppCompatActivity
     private LinearLayout mDealPipelineLinearLayout,mPerformanceComparisonLinearLayout,mDealsFundedLinearLayout;
     private FrameLayout mContentDashboardFrameLayout;
 
-    Fragment mCurrentFragment,mDealPipelineFramgnet,mPerformanceComparisonFragment,mDealsFundedFragment;
+    private Fragment mCurrentFragment,mDealPipelineFramgnet,mPerformanceComparisonFragment,mDealsFundedFragment;
 
 
+
+    private final int   SELECTED_TAB_DEAL_PIPELINE = 1,
+                        SELECTED_TAB_PERFORMANCE_COMPARISON = 2,
+                        SELECTED_TAB_DEALS_FUNDED = 3;
+
+    private int mCurrentSelectedTab = SELECTED_TAB_DEAL_PIPELINE;
 
 
     @Override
@@ -60,6 +67,7 @@ public class DashboardActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         initialiseViews();
+        selectDealPipeline();
     }
 
 
@@ -139,42 +147,14 @@ public class DashboardActivity extends AppCompatActivity
 
         switch (v.getId()){
             case R.id.deal_pipeline_linearlayout:
-
-                if(mDealPipelineFramgnet == null){
-                    mDealPipelineFramgnet = new DealPipelineFragment();
-                    mCurrentFragment = mDealPipelineFramgnet;
-                    addFragment(mCurrentFragment);
-                }else if(!(mCurrentFragment instanceof DealPipelineFragment)) {
-                    mCurrentFragment = mDealPipelineFramgnet;
-                    addFragment(mCurrentFragment);
-                }
-
-
-
+                selectDealPipeline();
                 break;
             case R.id.performance_comparison_linearlayout:
-                if(mPerformanceComparisonFragment == null){
-                    mPerformanceComparisonFragment = new PerformanceComparisonFragment();
-                    mCurrentFragment = mPerformanceComparisonFragment;
-                    addFragment(mCurrentFragment);
-                }else if(!(mCurrentFragment instanceof PerformanceComparisonFragment)) {
-                    mCurrentFragment = mPerformanceComparisonFragment;
-                    addFragment(mCurrentFragment);
-                }
-
+                selectPerformanceComparison();
                 break;
             case R.id.deals_funded_linearlayout:
-                if(mDealsFundedFragment == null){
-                    mDealsFundedFragment = new DealsFundedFragment();
-                    mCurrentFragment = mDealsFundedFragment;
-                    addFragment(mCurrentFragment);
-                }else if(!(mCurrentFragment instanceof DealsFundedFragment)) {
-                    mCurrentFragment = mDealsFundedFragment;
-                    addFragment(mCurrentFragment);
-                }
-
+                selectDealsFunded();
                 break;
-
         }
 
 
@@ -183,7 +163,7 @@ public class DashboardActivity extends AppCompatActivity
 
 
 
-    public void addFragment(Fragment fragment) {
+    private void addFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -198,4 +178,65 @@ public class DashboardActivity extends AppCompatActivity
        // fragmentTransaction.addToBackStack(fragment.getClass().getName());
         fragmentTransaction.commit();
     }
+
+    private void selectDealPipeline(){
+        if(mDealPipelineFramgnet == null){
+            mDealPipelineFramgnet = new DealPipelineFragment();
+            mCurrentFragment = mDealPipelineFramgnet;
+            addFragment(mCurrentFragment);
+        }else if(!(mCurrentFragment instanceof DealPipelineFragment)) {
+            mCurrentFragment = mDealPipelineFramgnet;
+            addFragment(mCurrentFragment);
+        }
+        setTabBackground(SELECTED_TAB_DEAL_PIPELINE);
+    }
+    private void selectPerformanceComparison(){
+        if(mPerformanceComparisonFragment == null){
+            mPerformanceComparisonFragment = new PerformanceComparisonFragment();
+            mCurrentFragment = mPerformanceComparisonFragment;
+            addFragment(mCurrentFragment);
+        }else if(!(mCurrentFragment instanceof PerformanceComparisonFragment)) {
+            mCurrentFragment = mPerformanceComparisonFragment;
+            addFragment(mCurrentFragment);
+        }
+        setTabBackground(SELECTED_TAB_PERFORMANCE_COMPARISON);
+    }
+    private void selectDealsFunded(){
+        if(mDealsFundedFragment == null){
+            mDealsFundedFragment = new DealsFundedFragment();
+            mCurrentFragment = mDealsFundedFragment;
+            addFragment(mCurrentFragment);
+        }else if(!(mCurrentFragment instanceof DealsFundedFragment)) {
+            mCurrentFragment = mDealsFundedFragment;
+            addFragment(mCurrentFragment);
+        }
+        setTabBackground(SELECTED_TAB_DEALS_FUNDED);
+    }
+
+    private void setTabBackground(int selectedTab){
+
+        switch (selectedTab){
+            case SELECTED_TAB_DEAL_PIPELINE:
+                mDealPipelineLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_red));
+                mPerformanceComparisonLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_blue));
+                mDealsFundedLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_blue));
+                break;
+
+            case SELECTED_TAB_PERFORMANCE_COMPARISON:
+                mDealPipelineLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_blue));
+                mPerformanceComparisonLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_red));
+                mDealsFundedLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_blue));
+                break;
+
+            case SELECTED_TAB_DEALS_FUNDED:
+                mDealPipelineLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_blue));
+                mPerformanceComparisonLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_blue));
+                mDealsFundedLinearLayout.setBackgroundColor(getResources().getColor(R.color.app_red));
+                break;
+
+        }
+
+
+    }
+
 }

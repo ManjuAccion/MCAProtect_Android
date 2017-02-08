@@ -35,13 +35,16 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/app_red"
             android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/deal_pipeline" />
+                android:text="@string/deal_pipeline"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/text_2_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,13 +52,16 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/app_blue"
             android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/performance_comparison" />
+                android:text="@string/performance_comparison"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/text_2_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -63,26 +69,29 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/app_blue"
             android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/deals_funded" />
+                android:text="@string/deals_funded"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/text_2_size" />
         </LinearLayout>
 
 
     </LinearLayout>
-<!--
+    <!--
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
--->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+    -->
 
 </android.support.design.widget.CoordinatorLayout>
