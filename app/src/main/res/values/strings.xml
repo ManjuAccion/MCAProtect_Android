@@ -34,4 +34,33 @@
     <string name="error_valid_mail">Please enter a valid email address</string>
     <string name="error_password">Please enter valid password</string>
     <string name="remember_password">Remember my password</string>
+
+    <!--forgot password-->
+    <string name="reset_password">Reset Password</string>
+    <string name="mailid_message">Enter your registered email id / mobile number</string>
+    <string name="popup_confirm_mail_message">An email with a confirmation link has been send to %1$s for resetting your password.</string>
+
+    <!--registration-->
+    <string name="registration">Registration</string>
+    <string name="register">Register</string>
+    <string name="business_name">Business Name</string>
+    <string name="email_id">Email Id</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="ok_button">OK</string>
+    <string name="popup_sucess_message">An email with an activation link has been sent to your email id, please check and activate your account</string>
+
+    <string name="error_business_name">Please enter buniness name</string>
+    <string name="error_mobile_number">Please enter your valid mobile number</string>
+    <string name="error_confirm_password">Please enter confirm Password</string>
+
+    <!--new password-->
+    <string name="password_combination_message">(Password must be a combination of a-z, A-Z or 0-9)</string>
+    <string name="change_password">Change Password</string>
+
+    <!---->
+    <string name="about_us_title">About Us</string>
+    <string name="privacy_policy_title">Privacy policy</string>
+    <string name="tc_title">Terms &amp; Conditions</string>
 </resources>

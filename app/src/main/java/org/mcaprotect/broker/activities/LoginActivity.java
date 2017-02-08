@@ -1,5 +1,6 @@
 package org.mcaprotect.broker.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
-import org.mcaprotect.broker.utils.NavigationUtils;
+import org.mcaprotect.broker.utils.McaConstants;
 import org.mcaprotect.broker.utils.UiUtils;
 import org.mcaprotect.broker.utils.Utils;
 
@@ -19,19 +20,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mForgotPasswordTextview, mLoginTextview;
     private EditText mEmailEdittext, mPasswordEdittext;
     private Button mLoginButton;
-    private NavigationUtils mNavigationUtility;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //setupNavBar();
-        setUpLayout();
-    }
 
-    private void setupNavBar() {
-        mNavigationUtility = new NavigationUtils(findViewById(R.id.base_layout));
-        mNavigationUtility.hideNavBar();
+        setUpLayout();
     }
 
     private void setUpLayout() {
@@ -80,21 +75,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.forgot_password_textview:
-
+                Intent forgotPassword = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(forgotPassword);
                 break;
             case R.id.new_user_textview:
-
+                Intent registration = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(registration);
                 break;
+
             case R.id.about_us_textview:
-
+                Intent aboutUs = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                aboutUs.putExtra(McaConstants.SCREEN_NAME, McaConstants.ABOUT_US);
+                startActivity(aboutUs);
                 break;
+
             case R.id.terms_conditions_textview:
-
+                Intent termsScreen = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                termsScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.TERMS_CONDITION);
+                startActivity(termsScreen);
                 break;
+
             case R.id.privacy_textview:
-
+                Intent privacyScreen = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                privacyScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.PRIVACY_POLICY);
+                startActivity(privacyScreen);
                 break;
-
         }
     }
 }
