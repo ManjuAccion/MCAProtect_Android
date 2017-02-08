@@ -29,9 +29,9 @@ public class NavigationUtils {
     }
 
     public void initHeader() {
-        backButton = (ImageView) mBaseView.findViewById(R.id.iv_back);
-        crossButton = (ImageView) mBaseView.findViewById(R.id.iv_cross);
-        headerTitle = (TextView) mBaseView.findViewById(R.id.tv_title);
+        backButton = (ImageView) mBaseView.findViewById(R.id.back_imageview);
+        crossButton = (ImageView) mBaseView.findViewById(R.id.cross_imageview);
+        headerTitle = (TextView) mBaseView.findViewById(R.id.title_textview);
     }
 
     public void hideNavBar() {

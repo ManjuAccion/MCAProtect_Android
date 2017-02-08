@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/loginscreen_margin_top"
-                android:background="@drawable/ic_launcher" />
+                android:background="@drawable/login_logo" />
 
             <TextView
                 android:id="@+id/login_textview"
@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="password"
-                    android:inputType="textVisiblePassword" />
+                    android:inputType="textWebPassword" />
 
             </android.support.design.widget.TextInputLayout>
 

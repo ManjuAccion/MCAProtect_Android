@@ -1,5 +1,6 @@
 package org.mcaprotect.broker.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,19 +20,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mForgotPasswordTextview, mLoginTextview;
     private EditText mEmailEdittext, mPasswordEdittext;
     private Button mLoginButton;
-    private NavigationUtils mNavigationUtility;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //setupNavBar();
-        setUpLayout();
-    }
 
-    private void setupNavBar() {
-        mNavigationUtility = new NavigationUtils(findViewById(R.id.base_layout));
-        mNavigationUtility.hideNavBar();
+        setUpLayout();
     }
 
     private void setUpLayout() {
@@ -80,9 +75,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.forgot_password_textview:
-
+                Intent forgotPassword = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(forgotPassword);
                 break;
             case R.id.new_user_textview:
+                Intent registration = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(registration);
 
                 break;
             case R.id.about_us_textview:
