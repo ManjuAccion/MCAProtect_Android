@@ -19,7 +19,7 @@ import org.mcaprotect.broker.utils.NavigationUtils;
  * Created by al1383 on 2/8/2017.
  */
 
-public class AboutusTcPrivacyActivity extends BaseActivity implements View.OnClickListener {
+public class AboutusTcPrivacyWebviewActivity extends BaseActivity implements View.OnClickListener {
     private WebView webView;
     private Dialog dialog;
     private NavigationUtils mNavigationUtility;
@@ -84,7 +84,7 @@ public class AboutusTcPrivacyActivity extends BaseActivity implements View.OnCli
         mNavigationUtility.displayLeftNavButton();
         mNavigationUtility.hideRightNavButton();
 
-        mNavigationUtility.setLeftNavListener(AboutusTcPrivacyActivity.this);
+        mNavigationUtility.setLeftNavListener(AboutusTcPrivacyWebviewActivity.this);
 
         if (screenName.equals(McaConstants.ABOUT_US)) {
             mNavigationUtility.setTitle(getString(R.string.about_us_title));
