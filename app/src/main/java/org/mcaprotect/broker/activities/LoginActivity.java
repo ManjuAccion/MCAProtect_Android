@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
-import org.mcaprotect.broker.utils.NavigationUtils;
+import org.mcaprotect.broker.utils.McaConstants;
 import org.mcaprotect.broker.utils.UiUtils;
 import org.mcaprotect.broker.utils.Utils;
 
@@ -81,18 +81,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.new_user_textview:
                 Intent registration = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(registration);
-
                 break;
+
             case R.id.about_us_textview:
-
+                Intent aboutUs = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                aboutUs.putExtra(McaConstants.SCREEN_NAME, McaConstants.ABOUT_US);
+                startActivity(aboutUs);
                 break;
+
             case R.id.terms_conditions_textview:
-
+                Intent termsScreen = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                termsScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.TERMS_CONDITION);
+                startActivity(termsScreen);
                 break;
+
             case R.id.privacy_textview:
-
+                Intent privacyScreen = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                privacyScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.PRIVACY_POLICY);
+                startActivity(privacyScreen);
                 break;
-
         }
     }
 }

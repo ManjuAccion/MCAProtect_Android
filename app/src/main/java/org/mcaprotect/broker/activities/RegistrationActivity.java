@@ -64,7 +64,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
                     DialogUtils.fullScreenErrorDialogWithOkListener(this, String.format(getString(R.string.popup_sucess_message)) ,"", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            finish();
                         }
                     });
                 }

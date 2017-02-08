@@ -38,7 +38,7 @@
         android:layout_toLeftOf="@id/cross_imageview"
         android:layout_toRightOf="@id/back_imageview"
         android:gravity="center"
-        android:textAllCaps="true"
+        android:textAllCaps="false"
         android:singleLine="true"
         android:textStyle="bold" />
 </RelativeLayout>

@@ -53,4 +53,9 @@
     <!--new password-->
     <string name="password_combination_message">(Password must be a combination of a-z, A-Z or 0-9)</string>
     <string name="change_password">Change Password</string>
+
+    <!---->
+    <string name="about_us_title">About Us</string>
+    <string name="privacy_policy_title">Privacy policy</string>
+    <string name="tc_title">Terms &amp; Conditions</string>
 </resources>

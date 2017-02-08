@@ -55,8 +55,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back_imageview:
-                Intent newPasswordScreen = new Intent(this, EnterNewPasswordActivity.class);
-                startActivity(newPasswordScreen);
+                finish();
                 break;
             case R.id.reset_password_button:
                 mMobileNumber = mEmailidNumberEdittext.getText().toString();
@@ -64,7 +63,8 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
                     DialogUtils.fullScreenErrorDialogWithOkListener(this, String.format(getString(R.string.popup_sucess_message)) ,"", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            Intent newPasswordScreen = new Intent(ForgotPasswordActivity.this, EnterNewPasswordActivity.class);
+                            startActivity(newPasswordScreen);
                         }
                     });
                 }

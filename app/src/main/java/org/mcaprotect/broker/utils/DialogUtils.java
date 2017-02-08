@@ -24,6 +24,13 @@ public class DialogUtils {
 
     }
 
+    public static boolean isContextValid(final Context context) {
+        if (context == null || ((context instanceof Activity) && ((Activity) context).isFinishing()))
+            return false;
+        else
+            return true;
+    }
+
     /**
      * @param context      context of the view
      * @param errorMessage error message
@@ -42,5 +49,22 @@ public class DialogUtils {
 
         okText.setOnClickListener(okClickListener);
         dialog.show();
+    }
+
+    /**
+     * Progress dialog to be used for network calls
+     * @param context context of the view
+     * @return returns dialog object
+     */
+    public static Dialog getLoadingProgressDialog(Context context) {
+        if (!isContextValid(context)) {
+            return null;
+        }
+        Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.progressbar_layout);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.setCancelable(false);
+        return dialog;
     }
 }
