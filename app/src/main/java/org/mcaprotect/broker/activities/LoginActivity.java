@@ -84,19 +84,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.about_us_textview:
-                Intent aboutUs = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                Intent aboutUs = new Intent(LoginActivity.this, AboutusTcPrivacyWebviewActivity.class);
                 aboutUs.putExtra(McaConstants.SCREEN_NAME, McaConstants.ABOUT_US);
                 startActivity(aboutUs);
                 break;
 
             case R.id.terms_conditions_textview:
-                Intent termsScreen = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                Intent termsScreen = new Intent(LoginActivity.this, AboutusTcPrivacyWebviewActivity.class);
                 termsScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.TERMS_CONDITION);
                 startActivity(termsScreen);
                 break;
 
             case R.id.privacy_textview:
-                Intent privacyScreen = new Intent(LoginActivity.this, AboutusTcPrivacyActivity.class);
+                Intent privacyScreen = new Intent(LoginActivity.this, AboutusTcPrivacyWebviewActivity.class);
                 privacyScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.PRIVACY_POLICY);
                 startActivity(privacyScreen);
                 break;
