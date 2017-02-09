@@ -29,6 +29,7 @@
     <dimen name="remember_password">16dp</dimen>
     <dimen name="forgot_password">18dp</dimen>
     <dimen name="about_us_tc_privacy">14dp</dimen>
+    <dimen name="check_box_padding">10dp</dimen>
 
     <!--forgot password-->
     <dimen name="button_padding">20dp</dimen>
