@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mForgotPasswordTextview, mLoginTextview;
     private EditText mEmailEdittext, mPasswordEdittext;
     private Button mLoginButton;
+    private CheckBox mRememberPasswordCheckbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAboutUsTextview = (TextView) findViewById(R.id.about_us_textview);
         mTermsConditionsTextview = (TextView) findViewById(R.id.terms_conditions_textview);
         mPrivacyTextview = (TextView) findViewById(R.id.privacy_textview);
-
+        mRememberPasswordCheckbox = (CheckBox) findViewById(R.id.remember_password_checkbox);
 
         UiUtils.mediumTextView(new TextView[]{mLoginTextview});
 
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAboutUsTextview.setOnClickListener(this);
         mTermsConditionsTextview.setOnClickListener(this);
         mPrivacyTextview.setOnClickListener(this);
+        mRememberPasswordCheckbox.setOnClickListener(this);
     }
 
     private boolean validateInput() {
