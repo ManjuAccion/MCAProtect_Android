@@ -67,20 +67,15 @@ public class DealPipelineFragment extends Fragment {
         mDealPipelineRecyclerView = (RecyclerView)view.findViewById(R.id.deal_pipeline_recyclerview);
         mSpinnerRelativeLayout = (RelativeLayout)view.findViewById(R.id.spinnerRelativeLayout);
 
-
-
-
-
-        for (int i = 0;i<10;i++){
-            ApplicationState objApplicationState = new ApplicationState();
-            objApplicationState.application_count = 15;
-            objApplicationState.application_state_id= i+1;
-            objApplicationState.application_state_name  = "New";
-            objApplicationState.average = 2000;
-            objApplicationState.deals_funded = 8;
-
-            mPipelineApplicationList.add(objApplicationState);
-        }
+        mPipelineApplicationList.add(new ApplicationState(1,15,133000,200000,300000,"New"));
+        mPipelineApplicationList.add(new ApplicationState(1,12,104400,204500,300000,"Underwriting"));
+        mPipelineApplicationList.add(new ApplicationState(1,14,444444,200000,300000,"Need more stips"));
+        mPipelineApplicationList.add(new ApplicationState(1,55,155000,333333,300000,"Funded"));
+        mPipelineApplicationList.add(new ApplicationState(1,15,102134,200000,444444,"DNQ"));
+        mPipelineApplicationList.add(new ApplicationState(1,55,156000,444444,300000,"Lost"));
+        mPipelineApplicationList.add(new ApplicationState(1,35,106400,200000,222222,"Renewal"));
+        mPipelineApplicationList.add(new ApplicationState(1,25,100210,200000,111111,"Demo"));
+        mPipelineApplicationList.add(new ApplicationState(1,35,100340,200000,333333,"Test"));
 
         mDealPipelineAdapter = new DealPipelineAdapter(getActivity(), mPipelineApplicationList,onClickListener);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());

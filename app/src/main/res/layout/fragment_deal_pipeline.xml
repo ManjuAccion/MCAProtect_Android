@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/bottom_nav_height"
     android:background="@color/white_color"
     tools:context="org.mcaprotect.broker.fragments.DealPipelineFragment">
 
@@ -10,8 +11,8 @@
         android:id="@+id/screen_title_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:text="@string/title_deals_pipeline"
         android:textColor="@color/app_blue_80_percent"
         android:textSize="@dimen/heading_2_size" />
@@ -25,14 +26,14 @@
         android:layout_margin="15dp">
 
         <TextView
+            android:id="@+id/time_selector_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:textSize="@dimen/text_1_size"
-            android:text="@string/select"
             android:layout_marginLeft="5dp"
-            android:id="@+id/time_selector_textview"
-            android:textColor="@color/app_gray_80_percent" />
+            android:text="@string/select"
+            android:textColor="@color/app_gray_80_percent"
+            android:textSize="@dimen/text_1_size" />
 
         <ImageView
             android:id="@+id/time_selector_imageview"
@@ -47,8 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/time_selector_textview"
-            android:background="@color/app_blue"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:background="@color/app_blue" />
 
     </RelativeLayout>
 
@@ -57,19 +58,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/screen_title_textview"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:text="@string/deal_pipeline_instruction"
         android:textColor="@color/app_gray_80_percent" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/deal_pipeline_recyclerview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/instruction_textview"
-        android:background="@color/app_gray_40_percent" />
+        android:layout_below="@id/instruction_textview"
+        android:background="@color/app_gray_40_percent"
+        >
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/deal_pipeline_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

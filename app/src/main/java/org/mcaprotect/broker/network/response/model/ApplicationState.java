@@ -14,15 +14,31 @@ public class ApplicationState {
             "deals_funded": 0*/
 
 
-      public int
-              application_state_id,
-              application_count,
-              sum,
-              average,
-              deals_funded;
-      public String application_state_name;
+    public int
+            application_state_id,
+            application_count,
+            sum,
+            average,
+            deals_funded;
+    public String application_state_name;
+
+    public ApplicationState(int application_state_id,
+                            int application_count,
+                            int sum,
+                            int average,
+                            int deals_funded,
+                            String application_state_name) {
 
 
+        this.application_state_id = application_state_id;
+        this.application_count = application_count;
+        this.sum = sum;
+        this.average = average;
+        this.deals_funded = deals_funded;
+        this.application_state_name = application_state_name;
+
+
+    }
 
 
 }

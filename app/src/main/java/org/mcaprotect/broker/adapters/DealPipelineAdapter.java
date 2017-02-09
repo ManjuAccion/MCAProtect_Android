@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.network.response.model.ApplicationState;
+import org.mcaprotect.broker.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,31 @@ public class DealPipelineAdapter extends RecyclerView.Adapter<DealPipelineAdapte
         holder.numberOfApplicationsTextView.setText(""+mPipelineApplicationList.get(position).application_count);
         holder.dealValueTextView.setText(""+mPipelineApplicationList.get(position).sum);
         holder.averageValueTextView.setText(""+mPipelineApplicationList.get(position).average);
+
+
+        switch (position % 7 ){
+            case 0:
+                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_blue_bright));
+                break;
+            case 1:
+                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_blue_dark));
+                break;
+            case 2:
+                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_blue_light));
+                break;
+            case 3:
+                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_green_light));
+                break;
+            case 4:
+                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_orange_light));
+                break;
+            case 5:
+                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_purple));
+                break;
+            case 6:
+                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_red_light));
+                break;
+        }
 
 
     }

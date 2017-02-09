@@ -1,7 +1,13 @@
 package org.mcaprotect.broker.utils;
 
+import android.content.Context;
+import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
+
+import org.mcaprotect.broker.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,4 +34,7 @@ public class Utils {
         Matcher matcher = pattern.matcher(editText.getText().toString());
         return matcher.matches();
     }
+
+
+
 }
