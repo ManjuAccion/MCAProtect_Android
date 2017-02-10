@@ -34,6 +34,7 @@ public class AboutusTcPrivacyWebviewActivity extends BaseActivity implements Vie
         setupNavBar();
     }
 
+    /*setup layout view*/
     private void setUpLayout() {
         screenName = getIntent().getExtras().getString(McaConstants.SCREEN_NAME);
         dialog = DialogUtils.getLoadingProgressDialog(this);
@@ -86,6 +87,7 @@ public class AboutusTcPrivacyWebviewActivity extends BaseActivity implements Vie
 
         mNavigationUtility.setLeftNavListener(AboutusTcPrivacyWebviewActivity.this);
 
+        /*setup Screen title*/
         if (screenName.equals(McaConstants.ABOUT_US)) {
             mNavigationUtility.setTitle(getString(R.string.about_us_title));
         } else if (screenName.equals(McaConstants.TERMS_CONDITION)) {

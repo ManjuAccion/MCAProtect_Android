@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/header_navigation"
+        android:id="@+id/include" />
+
     <include layout="@layout/footer" />
 
     <include layout="@layout/layout_error_banner" />
@@ -12,20 +15,17 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/footer"
-        android:layout_alignParentTop="true"
         android:layout_marginLeft="@dimen/loginscreen_left_margin"
         android:layout_marginRight="@dimen/loginscreen_right_margin"
-        android:paddingTop="@dimen/loginscreen_margin_top">
+        android:paddingTop="@dimen/loginscreen_margin_top"
+        android:layout_below="@+id/include"
+        android:layout_above="@+id/footer"
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="50dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -40,9 +40,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/loginscreen_margin_top"
-                android:text="@string/mPIN_title"
+                android:text="@string/change_mpin"
                 android:textColor="@color/forgot_password"
                 android:textSize="@dimen/login_text_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_your_old_mpin"
+                android:textColor="@color/app_blue_60_percent" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -51,7 +57,7 @@
                 android:orientation="horizontal">
 
                 <org.mcaprotect.broker.utils.PinEntryView
-                    android:id="@+id/pin_edittext"
+                    android:id="@+id/oldpin_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -62,42 +68,62 @@
 
             </RelativeLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/footer_height"
-                android:layout_above="@+id/footer"
-                android:layout_marginTop="@dimen/loginscreen_margin_top">
+                android:layout_height="wrap_content"
+                android:text="@string/new_mpin"
+                android:textColor="@color/app_blue_60_percent" />
 
-                <TextView
-                    android:id="@+id/change_mpin_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="left|center"
-                    android:text="@string/change_mpin"
-                    android:textColor="@color/app_red"
-                    android:textSize="@dimen/forgot_password" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/loginscreen_margin_top"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/forgot_mpin_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="right|center"
-                    android:text="@string/forgot_mpin"
-                    android:textColor="@color/app_red"
-                    android:textSize="@dimen/forgot_password" />
+                <org.mcaprotect.broker.utils.PinEntryView
+                    android:id="@+id/newpin_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
 
-            </LinearLayout>
+                    app:accentType="all"
+                    app:digitElevation="15dp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm_mpin"
+                android:textColor="@color/app_blue_60_percent" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/loginscreen_margin_top"
+                android:orientation="horizontal">
+
+                <org.mcaprotect.broker.utils.PinEntryView
+                    android:id="@+id/confirm_newpin_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+
+                    app:accentType="all"
+                    app:digitElevation="15dp" />
+
+            </RelativeLayout>
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/setpin_button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/loginscreen_margin_top"
                 android:background="@drawable/custom_button"
-                android:text="@string/login"
+                android:text="@string/set_pin"
                 android:textAllCaps="false"
                 android:textColor="@color/white_color"
                 android:textSize="@dimen/login_button_size" />

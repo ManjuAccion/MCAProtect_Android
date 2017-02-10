@@ -23,6 +23,17 @@
     <string name="deal_pipeline_instruction">Take control of your pipeline and fund more deals. View every application and their status below.</string>
 
 
+    <!--error messages-->
+    <string name="error_valid_mail">Please enter a valid email address</string>
+    <string name="error_password">Please enter valid password</string>
+    <string name="error_business_name">Please enter buniness name</string>
+    <string name="error_mobile_number">Please enter your valid mobile number</string>
+    <string name="error_confirm_password">Please enter confirm Password</string>
+    <string name="error_pin">Please enter your pin</string>
+    <string name="error_old_pin">Please enter your old Pin</string>
+    <string name="error_new_pin">Please enter new pin</string>
+    <string name="error_confirm_pin">Please enter confirm pin</string>
+
     <!--Loging screen-->
     <string name="mca_protect_message">\u00a9 2017 MCA Protect All right reserved</string>
     <string name="privacy_message">privacy</string>
@@ -31,8 +42,6 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="new_user">New User?</string>
     <string name="login">Login</string>
-    <string name="error_valid_mail">Please enter a valid email address</string>
-    <string name="error_password">Please enter valid password</string>
     <string name="remember_password">Remember my password</string>
 
     <!--forgot password-->
@@ -49,11 +58,8 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="ok_button">OK</string>
+    <string name="continue_button">Continue</string>
     <string name="popup_sucess_message">An email with an activation link has been sent to your email id, please check and activate your account</string>
-
-    <string name="error_business_name">Please enter buniness name</string>
-    <string name="error_mobile_number">Please enter your valid mobile number</string>
-    <string name="error_confirm_password">Please enter confirm Password</string>
 
     <!--new password-->
     <string name="password_combination_message">(Password must be a combination of a-z, A-Z or 0-9)</string>
@@ -71,5 +77,12 @@
     <string name="change_mpin">Change mPIN</string>
     <string name="forgot_mpin">Forgot mPIN</string>
     <string name="mPIN_title">Enter your mPIN to login</string>
+
+    <!--set mpin-->
+    <string name="enter_your_old_mpin">Change mPIN</string>
+    <string name="new_mpin">New mPIN</string>
+    <string name="confirm_mpin">Confirm mPIN</string>
+    <string name="set_pin">Set PIN</string>
+    <string name="set_mpin_sucess_message">your new mPIN is set Sucessfully</string>
 
 </resources>
