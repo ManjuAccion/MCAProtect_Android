@@ -45,7 +45,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mPrivacyTextview = (TextView) findViewById(R.id.privacy_textview);
         mRememberPasswordCheckbox = (CheckBox) findViewById(R.id.remember_password_checkbox);
 
-        UiUtils.mediumTextView(new TextView[]{mLoginTextview});
+        UiUtils.regularTextView(new TextView[]{mLoginButton, mRememberPasswordCheckbox, mLoginTextview});
+        UiUtils.lightTextView(new TextView[]{mAboutUsTextview, mTermsConditionsTextview, mPrivacyTextview, mForgotPasswordTextview, mNewUserTextview});
 
         mLoginButton.setOnClickListener(this);
         mForgotPasswordTextview.setOnClickListener(this);
@@ -72,8 +73,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.login_button:
                 if (validateInput()) {
-                    //Intent intent = new Intent(LoginActivity.this, SetmPINActivity.class);
-                    //startActivity(intent);
+                    Intent dashBoardActivity = new Intent(LoginActivity.this, DashboardActivity.class);
+                    startActivity(dashBoardActivity);
                 }
                 break;
 
@@ -81,6 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent forgotPassword = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(forgotPassword);
                 break;
+
             case R.id.new_user_textview:
                 Intent registration = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(registration);

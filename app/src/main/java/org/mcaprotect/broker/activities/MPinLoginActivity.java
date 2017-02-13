@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.utils.PinEntryView;
 import org.mcaprotect.broker.utils.UiUtils;
-import org.mcaprotect.broker.utils.Utils;
 
 /**
  * Created by al1383 on 2/8/2017.
@@ -59,11 +57,14 @@ public class MPinLoginActivity extends BaseActivity implements View.OnClickListe
                 if (mPinValue.length() <= 3) {
                     validateInput(mPinValue);
                 } else {
-                    Toast.makeText(MPinLoginActivity.this, "Your logic here", Toast.LENGTH_SHORT).show();
+                    Intent dashBoardActivity = new Intent(this, DashboardActivity.class);
+                    startActivity(dashBoardActivity);
                 }
 
                 break;
             case R.id.forgot_mpin_textview:
+                Intent forgotmPin = new Intent(this, ResetmPINActivity.class);
+                startActivity(forgotmPin);
 
                 break;
             case R.id.change_mpin_textview:

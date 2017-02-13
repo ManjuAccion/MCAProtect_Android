@@ -85,5 +85,11 @@
     <string name="confirm_mpin">Confirm mPIN</string>
     <string name="set_pin">Set PIN</string>
     <string name="set_mpin_sucess_message">your new mPIN is set Sucessfully</string>
+    <string name="mailid_hint">email id</string>
+    <string name="reset_mpin">Reset mPIN</string>
+    <string name="reset_mpin_message">Enter a 4-Digit PIN to help prevent other people from using this app</string>
+    <string name="set_newmpin_title">Set new mPIN</string>
+    <string name="mpin_message_title">(Mobile Persional Identification Number)</string>
+
 
 </resources>

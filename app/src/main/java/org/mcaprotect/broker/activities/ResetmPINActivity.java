@@ -4,44 +4,41 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.utils.NavigationUtils;
-import org.mcaprotect.broker.utils.PinEntryView;
 import org.mcaprotect.broker.utils.UiUtils;
 
 /**
- * Created by al1383 on 2/7/2017.
+ * Created by al1383 on 2/13/2017.
  */
 
-public class SetmPINActivity extends Activity implements View.OnClickListener{
-    private Button mSetpinButton;
+public class ResetmPINActivity extends Activity implements View.OnClickListener {
+    private Button mLoginButton;
     private NavigationUtils mNavigationUtility;
-    private TextView mMessageTextview, mMpinTextview, mSetpinTitleTextview;
-    private PinEntryView mNewpinEdittext, mConfirmNewpinEdittext;
+    private EditText mEmailidEdittext;
+    private TextView mMessageTextview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setmpin);
+        setContentView(R.layout.activity_reset_mpin);
 
         setUpLayout();
         setupNavBar();
     }
 
     private void setUpLayout() {
-        mSetpinButton = (Button) findViewById(R.id.setpin_button);
-        mMpinTextview = (TextView) findViewById(R.id.mpin_textview);
-        mSetpinTitleTextview = (TextView) findViewById(R.id.setpin_title_textview);
+        mLoginButton = (Button) findViewById(R.id.login_button);
+        mEmailidEdittext = (EditText) findViewById(R.id.mailid_edittext);
         mMessageTextview = (TextView) findViewById(R.id.message_textview);
-        mNewpinEdittext = (PinEntryView) findViewById(R.id.newpin_edittext);
-        mConfirmNewpinEdittext = (PinEntryView) findViewById(R.id.confirm_newpin_edittext);
 
-        UiUtils.regularTextView(new TextView[]{mSetpinButton, mSetpinTitleTextview, mMessageTextview});
-        UiUtils.lightTextView(new TextView[]{ });
+        UiUtils.regularTextView(new TextView[]{mLoginButton, mEmailidEdittext, mMessageTextview});
+        UiUtils.lightTextView(new TextView[]{mEmailidEdittext});
 
-        mSetpinButton.setOnClickListener(this);
+        mLoginButton.setOnClickListener(this);
     }
 
     private void setupNavBar() {
@@ -49,7 +46,7 @@ public class SetmPINActivity extends Activity implements View.OnClickListener{
         mNavigationUtility.displayLeftNavButton();
         mNavigationUtility.hideRightNavButton();
 
-        mNavigationUtility.setLeftNavListener(SetmPINActivity.this);
+        mNavigationUtility.setLeftNavListener(ResetmPINActivity.this);
     }
 
     @Override

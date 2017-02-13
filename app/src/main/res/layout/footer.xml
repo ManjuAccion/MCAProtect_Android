@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="@string/mca_protect_message"
-        android:textColor="@color/footer_color"
+        android:textColor="@color/app_blue_40_percent"
         android:textSize="@dimen/footer_textview" />
 
 </RelativeLayout>

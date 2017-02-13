@@ -11,19 +11,13 @@
 
     <include layout="@layout/layout_error_banner" />
 
-    <View
-        android:id="@+id/header_view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/header"
-        android:background="@color/app_gray_40_percent" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/footer"
-        android:layout_below="@+id/header_view"
-        android:layout_centerHorizontal="true">
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/header_to_icon_space">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,54 +34,47 @@
                 android:background="@drawable/login_logo" />
 
             <TextView
-                android:id="@+id/title_textview"
+                android:id="@+id/setpin_title_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/appicon_to_title_space"
-                android:text="@string/change_mpin"
+                android:text="@string/set_newmpin_title"
                 android:textColor="@color/app_red"
                 android:textSize="@dimen/screen_title_textsize" />
 
             <TextView
-                android:id="@+id/oldpin_textview"
-                android:layout_width="match_parent"
+                android:id="@+id/mpin_textview"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/title_to_edittext_textview_space"
-                android:text="@string/enter_your_old_mpin"
-                android:textColor="@color/app_blue_60_percent"
-                android:textSize="@dimen/screen_message_textsize" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/loginscreen_margin_top"
-                android:orientation="horizontal">
-
-                <org.mcaprotect.broker.utils.PinEntryView
-                    android:id="@+id/oldpin_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-
-                    app:accentType="all"
-                    app:digitElevation="15dp" />
-
-            </RelativeLayout>
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_top_padding_10dp"
+                android:text="@string/mpin_message_title"
+                android:textColor="@color/app_gray_80_percent"
+                android:textSize="@dimen/mpin_textsize" />
 
             <TextView
-                android:id="@+id/newpin_textview"
+                android:id="@+id/message_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/textview_space"
+                android:text="@string/reset_mpin_message"
+                android:textColor="@color/app_gray_80_percent"
+                android:textSize="@dimen/screen_message_textsize" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/new_mpin"
+                android:layout_marginTop="@dimen/title_to_edittext_textview_space"
                 android:textColor="@color/app_blue_60_percent"
                 android:textSize="@dimen/screen_message_textsize" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/loginscreen_margin_top"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="@dimen/header_to_icon_space"
                 android:orientation="horizontal">
 
                 <org.mcaprotect.broker.utils.PinEntryView
@@ -103,7 +90,6 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/confirmpin_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/confirm_mpin"
@@ -112,8 +98,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/loginscreen_margin_top"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="@dimen/header_to_icon_space"
                 android:orientation="horizontal">
 
                 <org.mcaprotect.broker.utils.PinEntryView
