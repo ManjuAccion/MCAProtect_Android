@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/bottom_nav_height"
     android:background="@color/white_color"
     tools:context="org.mcaprotect.broker.fragments.DealPipelineFragment">
 
@@ -11,19 +10,20 @@
         android:id="@+id/screen_title_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="@dimen/dashboard_screen_title_margin_top"
         android:text="@string/title_deals_pipeline"
-        android:textColor="@color/app_blue_80_percent"
-        android:textSize="@dimen/heading_2_size" />
+        android:textColor="@color/dashboard_screen_title_color"
+        android:textSize="@dimen/dashboard_screen_title_size" />
 
     <RelativeLayout
         android:id="@+id/spinnerRelativeLayout"
         android:layout_width="120dp"
         android:layout_height="40dp"
+        android:layout_marginTop="@dimen/dashboard_screen_title_margin_top"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="15dp">
+        android:layout_marginRight="16dp">
 
         <TextView
             android:id="@+id/time_selector_textview"
@@ -32,8 +32,8 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
             android:text="@string/select"
-            android:textColor="@color/app_gray_80_percent"
-            android:textSize="@dimen/text_1_size" />
+            android:textColor="@color/dashboard_screen_title_color"
+            android:textSize="@dimen/dashboard_screen_text_size" />
 
         <ImageView
             android:id="@+id/time_selector_imageview"
@@ -42,7 +42,7 @@
             android:layout_alignParentRight="true"
             android:layout_gravity="right"
             android:layout_marginRight="5dp"
-            android:src="@android:drawable/arrow_down_float" />
+            android:src="@drawable/down_arrow" />
 
         <View
             android:layout_width="match_parent"
@@ -57,13 +57,14 @@
         android:id="@+id/instruction_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/screen_title_textview"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/screen_title_textview"
+        android:layout_marginBottom="@dimen/dashboard_instruction_margin_bottom"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="@dimen/dashboard_instruction_margin_top"
         android:text="@string/deal_pipeline_instruction"
-        android:textColor="@color/app_gray_80_percent" />
+        android:textColor="@color/dashboard_screen_text_color"
+        android:textSize="@dimen/dashboard_screen_text_size"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,7 +78,7 @@
             android:id="@+id/deal_pipeline_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="@dimen/dashboard_margin_between_items"/>
     </LinearLayout>
 
 

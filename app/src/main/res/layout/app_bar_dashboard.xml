@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,29 +7,81 @@
     android:fitsSystemWindows="true"
     tools:context="org.mcaprotect.broker.activities.DashboardActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <RelativeLayout
+        android:id="@+id/header_relativelayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="@dimen/dashboard_title_bar_height"
+        android:layout_alignParentTop="true">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+
+        <ImageView
+            android:id="@+id/left_menu_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:clickable="true"
+            android:padding="@dimen/header_btn_padding"
+            android:src="@drawable/burger_nav" />
+
+
+        <ImageView
+            android:id="@+id/right_menu_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:clickable="true"
+            android:padding="@dimen/header_btn_padding"
+            android:src="@drawable/option_nav" />
+
+
+        <TextView
+            android:id="@+id/title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/right_menu_imageview"
+            android:layout_toRightOf="@id/left_menu_imageview"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textSize="@dimen/title_text_size"
+            android:textColor="@color/app_blue"
+            android:text="@string/dashboard"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="1dp"
+            android:background="@color/app_gray_60_percent"
+            android:layout_alignParentBottom="true"
+            />
 
-    </android.support.design.widget.AppBarLayout>
+    </RelativeLayout>
 
-    <include layout="@layout/fragment_container"
-        />
+   <!-- <android.support.design.widget.AppBarLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:theme="@style/AppTheme.AppBarOverlay">
+
+           <android.support.v7.widget.Toolbar
+               android:id="@+id/toolbar"
+               android:layout_width="match_parent"
+               android:layout_height="?attr/actionBarSize"
+               android:background="?attr/colorPrimary"
+               app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+       </android.support.design.widget.AppBarLayout>-->
 
 
     <LinearLayout
         android:id="@+id/bottom_nav_linearlayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_nav_height"
-        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -41,12 +93,13 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/bottom_tab_deal_pipeline_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/deal_pipeline"
                 android:textColor="@color/white_color"
-                android:textSize="@dimen/text_2_size" />
+                android:textSize="@dimen/bottom_bar_text_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,12 +111,13 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/bottom_tab_performance_comparison_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/performance_comparison"
                 android:textColor="@color/white_color"
-                android:textSize="@dimen/text_2_size" />
+                android:textSize="@dimen/bottom_bar_text_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,12 +129,13 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/bottom_tab_deals_funded_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/deals_funded"
                 android:textColor="@color/white_color"
-                android:textSize="@dimen/text_2_size" />
+                android:textSize="@dimen/bottom_bar_text_size" />
         </LinearLayout>
 
 
@@ -95,5 +150,12 @@
             android:layout_margin="@dimen/fab_margin"
             app:srcCompat="@android:drawable/ic_dialog_email" />
     -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_nav_linearlayout"
+        android:layout_below="@id/header_relativelayout">
 
-</android.support.design.widget.CoordinatorLayout>
+        <include layout="@layout/fragment_container" />
+    </LinearLayout>
+</RelativeLayout>

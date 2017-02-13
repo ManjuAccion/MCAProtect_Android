@@ -14,6 +14,10 @@
 
 
 
+
+    <color name="item_click_pink">#FFC0CB</color>
+
+
     <color name="app_red">#A32A2A</color>
     <color name="app_green">#339966</color>
     <color name="app_gray">#4B4B4B</color>
@@ -36,5 +40,23 @@
     <color name="strip_color_blue_dark">@android:color/holo_blue_dark</color>
     <color name="strip_color_light_green">@android:color/holo_green_light</color>
     <color name="strip_color_orange">@android:color/holo_orange_light</color>
+
+    <color name="bottom_bar_text_color">#BCCAD4</color>
+    <color name="bottom_bar_on_select_text_color">#FFFFFF</color>
+    <color name="bottom_bar_bg_color">@color/app_blue</color>
+    <color name="bottom_bar_on_select_bg_color">@color/app_red</color>
+
+    <color name="title_text_color">@color/app_blue</color>
+    <color name="dashboard_screen_title_color">@color/app_blue_80_percent</color>
+    <color name="dashboard_screen_text_color">@color/app_blue_60_percent</color>
+    <color name="dashboard_screen_item_heading_text_color">@color/app_red</color>
+    <color name="dashboard_screen_item_label_tex_color">#8896A1</color>
+    <color name="dashboard_screen_item_value_text_color">#485A66</color>
+
+
+
+
+
+
 
 </resources>

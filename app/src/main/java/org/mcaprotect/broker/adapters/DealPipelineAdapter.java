@@ -1,6 +1,7 @@
 package org.mcaprotect.broker.adapters;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.network.response.model.ApplicationState;
+import org.mcaprotect.broker.utils.UiUtils;
 import org.mcaprotect.broker.utils.Utils;
 
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class DealPipelineAdapter extends RecyclerView.Adapter<DealPipelineAdapte
     ArrayList<ApplicationState> mPipelineApplicationList;
     View.OnClickListener mOnClickListener;
 
-    public DealPipelineAdapter(Context context, ArrayList<ApplicationState> pipelineApplications, View.OnClickListener clickListener) {
+    public DealPipelineAdapter(Context context,ArrayList<ApplicationState> pipelineApplications, View.OnClickListener clickListener) {
         mContext = context;
         mPipelineApplicationList = pipelineApplications;
         mOnClickListener = clickListener;
@@ -43,34 +45,34 @@ public class DealPipelineAdapter extends RecyclerView.Adapter<DealPipelineAdapte
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         holder.parentLinearLayout.setOnClickListener(mOnClickListener);
-        holder.parentLinearLayout.setTag(holder);
-        holder.categoryNameTextView.setText(""+mPipelineApplicationList.get(position).application_state_name);
-        holder.numberOfApplicationsTextView.setText(""+mPipelineApplicationList.get(position).application_count);
-        holder.dealValueTextView.setText(""+mPipelineApplicationList.get(position).sum);
-        holder.averageValueTextView.setText(""+mPipelineApplicationList.get(position).average);
+        holder.parentLinearLayout.setTag(mPipelineApplicationList.get(position));
+        holder.categoryNameTextView.setText(""+mPipelineApplicationList.get(position).getApplication_state_name());
+        holder.numberOfApplicationsTextView.setText(""+mPipelineApplicationList.get(position).getApplication_count());
+        holder.dealValueTextView.setText("$"+String.valueOf(mPipelineApplicationList.get(position).getSum()));
+        holder.averageValueTextView.setText("$"+mPipelineApplicationList.get(position).getAverage());
 
 
         switch (position % 7 ){
             case 0:
-                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_blue_bright));
+                holder.leftStripView.setBackground(ContextCompat.getDrawable(mContext,R.drawable.left_strip_blue_bright));
                 break;
             case 1:
-                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_blue_dark));
+                holder.leftStripView.setBackground(ContextCompat.getDrawable(mContext,R.drawable.left_strip_blue_dark));
                 break;
             case 2:
-                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_blue_light));
+                holder.leftStripView.setBackground(ContextCompat.getDrawable(mContext,R.drawable.left_strip_blue_light));
                 break;
             case 3:
-                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_green_light));
+                holder.leftStripView.setBackground(ContextCompat.getDrawable(mContext,R.drawable.left_strip_green_light));
                 break;
             case 4:
-                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_orange_light));
+                holder.leftStripView.setBackground(ContextCompat.getDrawable(mContext,R.drawable.left_strip_orange_light));
                 break;
             case 5:
-                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_purple));
+                holder.leftStripView.setBackground(ContextCompat.getDrawable(mContext,R.drawable.left_strip_purple));
                 break;
             case 6:
-                holder.leftStripView.setBackground(mContext.getResources().getDrawable(R.drawable.left_strip_red_light));
+                holder.leftStripView.setBackground(ContextCompat.getDrawable(mContext,R.drawable.left_strip_red_light));
                 break;
         }
 
@@ -83,7 +85,7 @@ public class DealPipelineAdapter extends RecyclerView.Adapter<DealPipelineAdapte
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView categoryNameTextView, numberOfApplicationsTextView,dealValueTextView,averageValueTextView;
+        public TextView categoryNameTextView, numberOfApplicationsTextView,dealValueTextView,dealValueLabelTextView,averageValueTextView,averageValueLabelTextView;
         public View leftStripView;
         public LinearLayout parentLinearLayout;
 
@@ -93,10 +95,18 @@ public class DealPipelineAdapter extends RecyclerView.Adapter<DealPipelineAdapte
 
             categoryNameTextView = (TextView) view.findViewById(R.id.category_textview);
             numberOfApplicationsTextView = (TextView) view.findViewById(R.id.number_of_applications_textview);
+
+            dealValueLabelTextView = (TextView) view.findViewById(R.id.deal_value_label_textview);
             dealValueTextView = (TextView) view.findViewById(R.id.deal_value_textview);
+
+            averageValueLabelTextView = (TextView) view.findViewById(R.id.average_value_label_textview);
             averageValueTextView = (TextView) view.findViewById(R.id.average_value_textview);
             leftStripView = view.findViewById(R.id.left_strip_view);
             parentLinearLayout = (LinearLayout)view.findViewById(R.id.parentLinearLayout);
+
+
+            UiUtils.lightTextView(new TextView[]{categoryNameTextView,numberOfApplicationsTextView,dealValueLabelTextView,averageValueLabelTextView});
+            UiUtils.mediumTextView(new TextView[]{dealValueTextView,averageValueTextView});
         }
     }
 

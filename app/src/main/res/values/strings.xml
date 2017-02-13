@@ -16,6 +16,7 @@
 
 
     <!--Dasboard strings-->
+    <string name="dashboard">Dashboard</string>
     <string name="deal_pipeline">Deals\nPipeline</string>
     <string name="performance_comparison">Performance\nComparison</string>
     <string name="deals_funded">Deals\nFunded</string>

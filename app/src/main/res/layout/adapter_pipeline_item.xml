@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="0dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:layout_marginBottom="12dp"
-    android:orientation="horizontal">
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="@dimen/dashboard_margin_between_items"
+    android:orientation="horizontal"
+    >
 
 
     <View
         android:id="@+id/left_strip_view"
-        android:layout_width="6dp"
+        android:layout_width="5dp"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:background="@drawable/left_strip_orange_light" />
@@ -20,40 +21,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_corner_with_white_background">
+        android:background="@drawable/item_pressed"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="@dimen/dashboard_item_margin">
 
             <TextView
                 android:id="@+id/category_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New"
-                android:textColor="@color/app_red"
-                android:textSize="@dimen/heading_2_size" />
+                android:textColor="@color/dashboard_screen_item_heading_text_color"
+                android:textSize="@dimen/dashboard_item_heading_text_size" />
 
             <TextView
                 android:id="@+id/deal_value_label_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/category_textview"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/dashboard_item_first_row_margin_top"
                 android:text="Deal Value"
-                android:textColor="@color/app_gray_60_percent"
-                android:textSize="@dimen/text_2_size" />
+                android:textColor="@color/dashboard_screen_item_label_tex_color"
+                android:textSize="@dimen/dashboard_screen_item_label_tex_size" />
 
             <TextView
                 android:id="@+id/deal_value_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/deal_value_label_textview"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="@dimen/dashboard_item_second_row_margin_top"
                 android:text="$150008"
-                android:textColor="@color/app_gray_80_percent"
-                android:textSize="@dimen/text_2_size"
+                android:textColor="@color/dashboard_screen_item_value_text_color"
+                android:textSize="@dimen/dashboard_screen_item_value_text_size"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +65,7 @@
                 android:layout_alignParentRight="true"
                 android:text="21"
                 android:textColor="@color/app_green"
-                android:textSize="@dimen/heading_2_size" />
+                android:textSize="@dimen/dashboard_item_heading_text_size" />
 
             <TextView
                 android:id="@+id/average_value_label_textview"
@@ -71,10 +73,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/number_of_applications_textview"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/dashboard_item_first_row_margin_top"
                 android:text="Average Value"
-                android:textColor="@color/app_gray_60_percent"
-                android:textSize="@dimen/text_2_size" />
+                android:textColor="@color/dashboard_screen_item_label_tex_color"
+                android:textSize="@dimen/dashboard_screen_item_label_tex_size" />
 
             <TextView
                 android:id="@+id/average_value_textview"
@@ -82,10 +84,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/average_value_label_textview"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="@dimen/dashboard_item_second_row_margin_top"
                 android:text="$150008"
-                android:textColor="@color/app_gray_80_percent"
-                android:textSize="@dimen/text_2_size"
+                android:textColor="@color/dashboard_screen_item_label_tex_color"
+                android:textSize="@dimen/dashboard_screen_item_value_text_size"
                 android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>

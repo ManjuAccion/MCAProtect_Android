@@ -2,6 +2,7 @@ package org.mcaprotect.broker.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,20 +11,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
+import org.mcaprotect.broker.activities.ApplicationsDetailActivity;
 import org.mcaprotect.broker.adapters.DealPipelineAdapter;
 import org.mcaprotect.broker.network.response.model.ApplicationState;
+import org.mcaprotect.broker.utils.UiUtils;
 
 import java.util.ArrayList;
 
 
-public class DealPipelineFragment extends Fragment {
+public class DealPipelineFragment extends Fragment implements View.OnClickListener {
     private View mLayout;
     private RecyclerView mDealPipelineRecyclerView;
     private DealPipelineAdapter mDealPipelineAdapter;
     private RelativeLayout mSpinnerRelativeLayout;
     private ArrayList<ApplicationState> mPipelineApplicationList = new ArrayList<>();
+
+    public static final String APPLICATION_STATE = "application_state";
 
 
     public DealPipelineFragment() {
@@ -48,6 +54,7 @@ public class DealPipelineFragment extends Fragment {
         if (mLayout == null) {
             // this is the first time onCreateView has been called
             mLayout = inflater.inflate(R.layout.fragment_deal_pipeline, container, false);
+            initialiseViews(mLayout);
         } else {
             // remove previous parent
             ViewParent parent = mLayout.getParent();
@@ -55,9 +62,18 @@ public class DealPipelineFragment extends Fragment {
                 ((ViewGroup) parent).removeView(mLayout);
         }
 
-        initialiseViews(mLayout);
+
 
         return mLayout;
+
+
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
 
 
     }
@@ -77,11 +93,14 @@ public class DealPipelineFragment extends Fragment {
         mPipelineApplicationList.add(new ApplicationState(1,25,100210,200000,111111,"Demo"));
         mPipelineApplicationList.add(new ApplicationState(1,35,100340,200000,333333,"Test"));
 
-        mDealPipelineAdapter = new DealPipelineAdapter(getActivity(), mPipelineApplicationList,onClickListener);
+        mDealPipelineAdapter = new DealPipelineAdapter(getActivity(),mPipelineApplicationList,this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mDealPipelineRecyclerView.setLayoutManager(mLayoutManager);
         mDealPipelineRecyclerView.setAdapter(mDealPipelineAdapter);
 
+
+        UiUtils.regularTextView(new TextView[]{(TextView)view.findViewById(R.id.screen_title_textview),(TextView)view.findViewById(R.id.instruction_textview)});
+        UiUtils.lightTextView(new TextView[]{(TextView)view.findViewById(R.id.time_selector_textview)});
 
     }
 
@@ -92,16 +111,26 @@ public class DealPipelineFragment extends Fragment {
 
 
     }
+    @Override
+    public void onClick(View v) {
 
-    View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.parentLinearLayout:
+                ApplicationState objApplicationState = (ApplicationState) v.getTag();
+                Intent intent = new Intent(getActivity(), ApplicationsDetailActivity.class);
+                intent.putExtra(APPLICATION_STATE,objApplicationState);
+                startActivity(intent);
+
+                break;
 
 
 
 
         }
-    };
+
+    }
+
 
 
     @Override
@@ -120,6 +149,7 @@ public class DealPipelineFragment extends Fragment {
         super.onDetach();
        // mListener = null;
     }
+
 
 
 }
