@@ -49,6 +49,9 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         mPasswordEdittext = (EditText) findViewById(R.id.password_edittext);
         mConfirmPasswordEdittext = (EditText) findViewById(R.id.confirm_password_edittext);
 
+        UiUtils.lightTextView(new TextView[]{mBusinessNameEdittext, mEmailIdEdittext, mPhoneNumberEdittext, mPasswordEdittext, mConfirmPasswordEdittext});
+        UiUtils.regularButton(new Button[]{mRegisterButton});
+
         mRegisterButton.setOnClickListener(this);
 
     }

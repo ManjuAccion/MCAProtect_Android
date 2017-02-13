@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
-import org.mcaprotect.broker.utils.NavigationUtils;
 import org.mcaprotect.broker.utils.UiUtils;
 
 /**
@@ -15,24 +14,27 @@ import org.mcaprotect.broker.utils.UiUtils;
  */
 
 public class EnterNewPasswordActivity extends BaseActivity implements View.OnClickListener {
-    private NavigationUtils mNavigationUtility;
     private EditText mPasswordEdittext, mConfirmPasswordEdittext;
-    private TextView mErrorBanner;
+    private TextView mErrorBanner, mPassConditionTextview;
     private Button mChangePasswordButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_password);
+        setContentView(R.layout.activity_enter_new_password);
 
         setupLayout();
     }
 
     private void setupLayout() {
         mErrorBanner = (TextView) findViewById(R.id.error_banner);
+        mPassConditionTextview = (TextView) findViewById(R.id.password_condition_textview);
         mPasswordEdittext = (EditText) findViewById(R.id.password_edittext);
         mConfirmPasswordEdittext = (EditText) findViewById(R.id.confirm_password_edittext);
         mChangePasswordButton = (Button) findViewById(R.id.change_password_button);
+
+        UiUtils.regularButton(new Button[]{mChangePasswordButton});
+        UiUtils.lightItalicTextView(new TextView[]{mPassConditionTextview});
 
         mChangePasswordButton.setOnClickListener(this);
     }

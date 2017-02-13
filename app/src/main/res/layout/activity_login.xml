@@ -52,8 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mailid_hint"
-                    android:textColorHint="@color/app_blue_40_percent"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/app_red" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -68,8 +68,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:textColorHint="@color/app_blue_40_percent"
-                    android:inputType="textWebPassword" />
+                    android:inputType="textWebPassword"
+                    android:textColorHint="@color/app_red" />
 
             </android.support.design.widget.TextInputLayout>
 

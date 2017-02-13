@@ -48,6 +48,9 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         mEmailidMessage = (TextView) findViewById(R.id.emailid_message);
         mForgotPasswordTextview = (TextView) findViewById(R.id.forgot_password_textview);
 
+        UiUtils.regularTextView(new TextView[]{mEmailidMessage, mForgotPasswordTextview});
+        UiUtils.regularButton(new Button[]{mResetPasswordButton});
+
         mResetPasswordButton.setOnClickListener(this);
     }
 

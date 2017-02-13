@@ -40,6 +40,7 @@ public class SetmPINActivity extends Activity implements View.OnClickListener{
 
         UiUtils.regularTextView(new TextView[]{mSetpinButton, mSetpinTitleTextview, mMessageTextview});
         UiUtils.lightTextView(new TextView[]{ });
+        UiUtils.lightItalicTextView(new TextView[]{mMpinTextview});
 
         mSetpinButton.setOnClickListener(this);
     }

@@ -87,6 +87,27 @@ public class UiUtils {
         }
     }
 
+    public static void lightItalicButton(Button[] viewFields) {
+        for (Button fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.lightitalic.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void lightItalicTextView(TextView[] viewFields) {
+        for (TextView fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.lightitalic.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
+    public static void lightItalicEditView(EditText[] viewFields) {
+        for (EditText fields : viewFields) {
+            Typeface typeface = Typeface.createFromAsset(fields.getContext().getAssets(), "fonts/roboto.lightitalic.ttf");
+            fields.setTypeface(typeface);
+        }
+    }
+
     public static void showErrorBanner (TextView textView, String message) {
         showErrorBanner(textView, message, false);
     }

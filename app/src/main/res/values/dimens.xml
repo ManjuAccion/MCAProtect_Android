@@ -51,45 +51,39 @@
 
     <!--registration-->
     <dimen name="margin_button_top">30dp</dimen>
+    <dimen name="edittext_size">20dp</dimen>
 
 
-   <!-- <dimen name="heading_1_size">22sp</dimen>
-    <dimen name="heading_2_size">20sp</dimen>
-    <dimen name="heading_3_size">20sp</dimen>
+    <!-- <dimen name="heading_1_size">22sp</dimen>
+     <dimen name="heading_2_size">20sp</dimen>
+     <dimen name="heading_3_size">20sp</dimen>
 
-    <dimen name="text_1_size">16sp</dimen>
-    <dimen name="text_2_size">14sp</dimen>
-    <dimen name="text_3_size">14sp</dimen>-->
-
+     <dimen name="text_1_size">16sp</dimen>
+     <dimen name="text_2_size">14sp</dimen>
+     <dimen name="text_3_size">14sp</dimen>-->
 
 
     <dimen name="footer_size">12sp</dimen>-
 
 
+    <!--
+       <dimen name="title_text_size">18sp</dimen>
+       <dimen name="bottom_bar_text_size">11sp</dimen>
+       <dimen name="dashboard_screen_title_size">24sp</dimen>
+       <dimen name="dashboard_screen_text_size">14sp</dimen>
+       <dimen name="dashboard_item_heading_text_size">26sp</dimen>
+       <dimen name="dashboard_screen_item_label_tex_size">16sp</dimen>
+       <dimen name="dashboard_screen_item_value_text_size">20sp</dimen>
 
+        <dimen name="dashboard_item_margin">16dp</dimen>
+        <dimen name="dashboard_item_first_row_margin_top">20dp</dimen>
+       <dimen name="dashboard_item_second_row_margin_top">10dp</dimen>
+       <dimen name="dashboard_margin_between_items">16dp</dimen>
+       <dimen name="dashboard_screen_title_margin_top">16dp</dimen>
+       <dimen name="dashboard_instruction_margin_top">10dp</dimen>
+       <dimen name="dashboard_instruction_margin_bottom">16dp</dimen>
 
-
-<!--
-   <dimen name="title_text_size">18sp</dimen>
-   <dimen name="bottom_bar_text_size">11sp</dimen>
-   <dimen name="dashboard_screen_title_size">24sp</dimen>
-   <dimen name="dashboard_screen_text_size">14sp</dimen>
-   <dimen name="dashboard_item_heading_text_size">26sp</dimen>
-   <dimen name="dashboard_screen_item_label_tex_size">16sp</dimen>
-   <dimen name="dashboard_screen_item_value_text_size">20sp</dimen>
-
-    <dimen name="dashboard_item_margin">16dp</dimen>
-    <dimen name="dashboard_item_first_row_margin_top">20dp</dimen>
-   <dimen name="dashboard_item_second_row_margin_top">10dp</dimen>
-   <dimen name="dashboard_margin_between_items">16dp</dimen>
-   <dimen name="dashboard_screen_title_margin_top">16dp</dimen>
-   <dimen name="dashboard_instruction_margin_top">10dp</dimen>
-   <dimen name="dashboard_instruction_margin_bottom">16dp</dimen>
-
--->
-
-
-
+    -->
 
 
     <dimen name="title_text_size">16sp</dimen>
@@ -100,21 +94,13 @@
     <dimen name="dashboard_screen_item_label_tex_size">14sp</dimen>
     <dimen name="dashboard_screen_item_value_text_size">18sp</dimen>
 
-        <dimen name="dashboard_item_margin">8dp</dimen>
-        <dimen name="dashboard_item_first_row_margin_top">8dp</dimen>
-        <dimen name="dashboard_item_second_row_margin_top">0dp</dimen>
-        <dimen name="dashboard_margin_between_items">10dp</dimen>
-        <dimen name="dashboard_screen_title_margin_top">11dp</dimen>
-        <dimen name="dashboard_instruction_margin_top">6dp</dimen>
-        <dimen name="dashboard_instruction_margin_bottom">11dp</dimen>
-
-
-
-
-
-
-
-
+    <dimen name="dashboard_item_margin">8dp</dimen>
+    <dimen name="dashboard_item_first_row_margin_top">8dp</dimen>
+    <dimen name="dashboard_item_second_row_margin_top">0dp</dimen>
+    <dimen name="dashboard_margin_between_items">10dp</dimen>
+    <dimen name="dashboard_screen_title_margin_top">11dp</dimen>
+    <dimen name="dashboard_instruction_margin_top">6dp</dimen>
+    <dimen name="dashboard_instruction_margin_bottom">11dp</dimen>
 
 
     <dimen name="left_strip_top_right_radius">0dp</dimen>

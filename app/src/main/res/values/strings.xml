@@ -47,6 +47,7 @@
 
     <!--forgot password-->
     <string name="reset_password">Reset Password</string>
+    <string name="email_number_field">email id / mobile number</string>
     <string name="mailid_message">Enter your registered email id / mobile number</string>
     <string name="popup_confirm_mail_message">An email with a confirmation link has been send to %1$s for resetting your password.</string>
 
