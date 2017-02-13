@@ -91,6 +91,7 @@
     <string name="reset_mpin_message">Enter a 4-Digit PIN to help prevent other people from using this app</string>
     <string name="set_newmpin_title">Set new mPIN</string>
     <string name="mpin_message_title">(Mobile Persional Identification Number)</string>
+    <string name="skip_text">Skip</string>
 
 
 </resources>

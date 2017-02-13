@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.forgot_password_textview:
-                Intent forgotPassword = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                Intent forgotPassword = new Intent(LoginActivity.this, ReSetmPINActivity.class);
                 startActivity(forgotPassword);
                 break;
 

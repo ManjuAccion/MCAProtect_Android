@@ -63,7 +63,7 @@ public class MPinLoginActivity extends BaseActivity implements View.OnClickListe
 
                 break;
             case R.id.forgot_mpin_textview:
-                Intent forgotmPin = new Intent(this, ResetmPINActivity.class);
+                Intent forgotmPin = new Intent(this, ReSetmPINActivity.class);
                 startActivity(forgotmPin);
 
                 break;

@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
+import org.mcaprotect.broker.utils.McaConstants;
 import org.mcaprotect.broker.utils.NavigationUtils;
 import org.mcaprotect.broker.utils.PinEntryView;
 import org.mcaprotect.broker.utils.UiUtils;
@@ -15,11 +16,12 @@ import org.mcaprotect.broker.utils.UiUtils;
  * Created by al1383 on 2/7/2017.
  */
 
-public class SetmPINActivity extends Activity implements View.OnClickListener{
+public class SetNewmPINActivity extends Activity implements View.OnClickListener{
     private Button mSetpinButton;
     private NavigationUtils mNavigationUtility;
     private TextView mMessageTextview, mMpinTextview, mSetpinTitleTextview;
     private PinEntryView mNewpinEdittext, mConfirmNewpinEdittext;
+    private String mScreenName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class SetmPINActivity extends Activity implements View.OnClickListener{
     }
 
     private void setUpLayout() {
+        //mScreenName = getIntent().getExtras().getString(McaConstants.SCREEN_NAME);
         mSetpinButton = (Button) findViewById(R.id.setpin_button);
         mMpinTextview = (TextView) findViewById(R.id.mpin_textview);
         mSetpinTitleTextview = (TextView) findViewById(R.id.setpin_title_textview);
@@ -47,10 +50,10 @@ public class SetmPINActivity extends Activity implements View.OnClickListener{
 
     private void setupNavBar() {
         mNavigationUtility = new NavigationUtils(findViewById(R.id.base_layout));
-        mNavigationUtility.displayLeftNavButton();
-        mNavigationUtility.hideRightNavButton();
+        mNavigationUtility.hideLeftNavButton();
+        mNavigationUtility.displayRightNavButton();
 
-        mNavigationUtility.setLeftNavListener(SetmPINActivity.this);
+        mNavigationUtility.setRightNavListener(SetNewmPINActivity.this);
     }
 
     @Override

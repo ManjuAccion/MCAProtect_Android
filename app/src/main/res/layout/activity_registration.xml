@@ -10,11 +10,18 @@
 
     <include layout="@layout/layout_error_banner" />
 
+    <View
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/header"
+        android:background="@color/app_gray_40_percent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/footer"
-        android:layout_below="@+id/header"
+        android:layout_below="@+id/header_view"
         android:layout_centerHorizontal="true">
 
         <LinearLayout
