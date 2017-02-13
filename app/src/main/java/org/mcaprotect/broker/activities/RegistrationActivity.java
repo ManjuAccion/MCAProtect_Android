@@ -61,7 +61,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.register_button:
                 if (validateInput()) {
-                    DialogUtils.fullScreenErrorDialogWithOkListener(this, String.format(getString(R.string.popup_sucess_message)) ,"", new View.OnClickListener() {
+                    DialogUtils.fullScreenErrorDialogWithOkListener(this, String.format(getString(R.string.popup_sucess_message)), "", getResources().getString(R.string.ok_button), new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             finish();

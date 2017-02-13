@@ -44,6 +44,9 @@
         -->
         <activity android:name=".activities.ApplicationsDetailActivity" />
         <activity android:name=".activities.RightMenuActivity"></activity>
+        <activity
+            android:name=".activities.ChangeMpinActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

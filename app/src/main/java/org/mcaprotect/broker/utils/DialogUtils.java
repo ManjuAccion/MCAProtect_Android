@@ -36,7 +36,7 @@ public class DialogUtils {
      * @param errorMessage error message
      * @return dialog object in return
      */
-    public static void fullScreenErrorDialogWithOkListener(final Context context, String errorMessage, String errorCode, View.OnClickListener okClickListener) {
+    public static void fullScreenErrorDialogWithOkListener(final Context context, String errorMessage, String errorCode, String buttonName, View.OnClickListener okClickListener) {
         if (context == null)
             return;
         final Dialog dialog = new Dialog(context, android.support.design.R.style.Base_Theme_AppCompat_Light_DialogWhenLarge);
@@ -46,6 +46,9 @@ public class DialogUtils {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         Button okText = (Button) dialog.findViewById(R.id.ok_button);
+        if(!buttonName.equals(context.getResources().getString(R.string.ok_button))){
+            okText.setText(context.getResources().getString(R.string.continue_button));
+        }
 
         okText.setOnClickListener(okClickListener);
         dialog.show();
