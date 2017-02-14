@@ -13,6 +13,8 @@
 
     <!--Titles-->
     <string name="title_deals_pipeline">Deals Pipeline</string>
+    <string name="title_performance_comparison">Performance Comparison</string>
+    <string name="title_deals_funded">Deals Funded</string>
 
 
     <!--Dasboard strings-->
@@ -22,7 +24,12 @@
     <string name="deals_funded">Deals\nFunded</string>
     <string name="select">Select</string>
     <string name="deal_pipeline_instruction">Take control of your pipeline and fund more deals. View every application and their status below.</string>
-
+    <string name="performance_comparison_instruction">Compare your performance between any two time periods</string>
+    <string name="deals_funded_instruction">See how many deals you have closed and for what amount.</string>
+    <string name="select_time_range">Select Time Range</string>
+    <string name="compare_with">Compare with</string>
+    <string name="current_month">Current Month</string>
+    <string name="current_quarter">Current Quarter</string>
 
     <!--error messages-->
     <string name="error_valid_mail">Please enter a valid email address</string>

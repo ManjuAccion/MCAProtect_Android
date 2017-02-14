@@ -1,13 +1,154 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_color"
     tools:context="org.mcaprotect.broker.fragments.PerformanceComparisonFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/screen_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/screen_margin_left"
+        android:layout_marginTop="@dimen/dashboard_screen_title_margin_top"
+        android:text="@string/title_performance_comparison"
+        android:textColor="@color/dashboard_screen_title_color"
+        android:textSize="@dimen/dashboard_screen_title_size" />
+
+
+    <TextView
+        android:id="@+id/instruction_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/screen_title_textview"
+        android:layout_marginBottom="@dimen/dashboard_instruction_margin_bottom"
+        android:layout_marginLeft="@dimen/screen_margin_left"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="@dimen/dashboard_instruction_margin_top"
+        android:text="@string/performance_comparison_instruction"
+        android:textColor="@color/dashboard_screen_text_color"
+        android:textSize="@dimen/dashboard_screen_text_size" />
+
+    <LinearLayout
+        android:id="@+id/time_selector_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instruction_textview"
+        android:layout_marginLeft="@dimen/screen_margin_left"
+        android:layout_marginRight="@dimen/screen_margin_right"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/start_time_range_label_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_time_range"
+                android:textColor="@color/dashboard_screen_text_color"
+                android:textSize="@dimen/dashboard_screen_item_label_tex_size" />
+
+            <Spinner
+                android:id="@+id/start_time_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/end_time_range_label_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/compare_with"
+                android:textColor="@color/dashboard_screen_text_color"
+                android:textSize="@dimen/dashboard_screen_item_label_tex_size" />
+
+            <Spinner
+                android:id="@+id/end_time_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selected_time_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_selector_linearlayout"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/app_blue" />
+
+                <TextView
+                    android:id="@+id/selected_start_time_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Current Month" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/app_red" />
+
+                <TextView
+                    android:id="@+id/selected_end_time_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Current Qurarter" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/chart1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="performance _fragment" />
+        android:layout_below="@id/selected_time_linearlayout" />
 
-</FrameLayout>
+</RelativeLayout>

@@ -100,7 +100,7 @@ public class DealPipelineFragment extends Fragment implements View.OnClickListen
 
 
         UiUtils.regularTextView(new TextView[]{(TextView)view.findViewById(R.id.screen_title_textview),(TextView)view.findViewById(R.id.instruction_textview)});
-        UiUtils.lightTextView(new TextView[]{(TextView)view.findViewById(R.id.time_selector_textview)});
+        UiUtils.lightTextView(new TextView[]{(TextView)view.findViewById(R.id.instruction_textview)});
 
     }
 

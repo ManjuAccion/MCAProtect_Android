@@ -11,7 +11,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,6 +56,9 @@
         <activity
             android:name=".activities.SetmPINActivity"
             android:screenOrientation="portrait" />
+
+       <!-- <activity android:name=".activities.HorizontalBarChartActivity"></activity>-->
+   <!--     <activity android:name="BarChartActivityMultiDataset"></activity>-->
     </application>
 
 </manifest>

@@ -2,4 +2,14 @@
 <resources>
 
 
+    <string-array name="time_range_array">
+
+        <item>Current Week</item>
+        <item>Current Month</item>
+        <item>Previous Month</item>
+        <item>Current Quarter</item>
+        <item>Previous Quarter</item>
+        <item>Current Year</item>
+    </string-array>
+
 </resources>
