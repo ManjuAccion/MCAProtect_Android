@@ -1,6 +1,7 @@
 package org.mcaprotect.broker.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,17 +12,18 @@ import org.mcaprotect.broker.utils.McaConstants;
 import org.mcaprotect.broker.utils.NavigationUtils;
 import org.mcaprotect.broker.utils.PinEntryView;
 import org.mcaprotect.broker.utils.UiUtils;
+import org.mcaprotect.broker.utils.Utils;
 
 /**
  * Created by al1383 on 2/7/2017.
  */
 
-public class SetNewmPINActivity extends Activity implements View.OnClickListener{
+public class SetNewmPINActivity extends Activity implements View.OnClickListener {
     private Button mSetpinButton;
     private NavigationUtils mNavigationUtility;
-    private TextView mMessageTextview, mMpinTextview, mSetpinTitleTextview;
+    private TextView mMessageTextview, mMpinTextview, mSetpinTitleTextview, mErrorBanner;
     private PinEntryView mNewpinEdittext, mConfirmNewpinEdittext;
-    private String mScreenName;
+    private String mScreenName, mPin = "", mConfirmPin = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +31,12 @@ public class SetNewmPINActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.activity_setmpin);
 
         setUpLayout();
-        setupNavBar();
+
     }
 
     private void setUpLayout() {
         //mScreenName = getIntent().getExtras().getString(McaConstants.SCREEN_NAME);
+        mErrorBanner = (TextView) findViewById(R.id.error_banner);
         mSetpinButton = (Button) findViewById(R.id.setpin_button);
         mMpinTextview = (TextView) findViewById(R.id.mpin_textview);
         mSetpinTitleTextview = (TextView) findViewById(R.id.setpin_title_textview);
@@ -42,18 +45,40 @@ public class SetNewmPINActivity extends Activity implements View.OnClickListener
         mConfirmNewpinEdittext = (PinEntryView) findViewById(R.id.confirm_newpin_edittext);
 
         UiUtils.regularTextView(new TextView[]{mSetpinButton, mSetpinTitleTextview, mMessageTextview});
-        UiUtils.lightTextView(new TextView[]{ });
+        UiUtils.lightTextView(new TextView[]{});
         UiUtils.lightItalicTextView(new TextView[]{mMpinTextview});
 
         mSetpinButton.setOnClickListener(this);
-    }
 
-    private void setupNavBar() {
-        mNavigationUtility = new NavigationUtils(findViewById(R.id.base_layout));
-        mNavigationUtility.hideLeftNavButton();
-        mNavigationUtility.displayRightNavButton();
+        mNewpinEdittext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mNewpinEdittext.requestFocus();
+            }
+        });
 
-        mNavigationUtility.setRightNavListener(SetNewmPINActivity.this);
+        mConfirmNewpinEdittext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConfirmNewpinEdittext.requestFocus();
+            }
+        });
+
+        mNewpinEdittext.setOnPinEnteredListener(new PinEntryView.OnPinEnteredListener() {
+            @Override
+            public void onPinEntered(String pin) {
+                mPin = pin;
+
+            }
+        });
+
+        mConfirmNewpinEdittext.setOnPinEnteredListener(new PinEntryView.OnPinEnteredListener() {
+            @Override
+            public void onPinEntered(String pin) {
+                mConfirmPin = pin;
+                mNewpinEdittext.requestFocus();
+            }
+        });
     }
 
     @Override
@@ -62,9 +87,26 @@ public class SetNewmPINActivity extends Activity implements View.OnClickListener
             case R.id.back_imageview:
 
                 break;
-            case R.id.login_button:
-
+            case R.id.setpin_button:
+                if (validateInput()) {
+                    Intent dashBoardActivity = new Intent(SetNewmPINActivity.this, LoginActivity.class);
+                    startActivity(dashBoardActivity);
+                }
                 break;
         }
+    }
+
+    private boolean validateInput() {
+        if (mPin.length() <= 3) {
+            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_new_pin));
+            return false;
+        } else if (mConfirmPin.length() <= 3) {
+            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_confirm_pin));
+            return false;
+        } else if (!mPin.toString().equals(mConfirmPin.toString())) {
+            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_pin_confirm_pin));
+            return false;
+        }
+        return true;
     }
 }

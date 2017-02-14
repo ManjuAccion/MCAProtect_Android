@@ -22,6 +22,7 @@ public class Utils {
 
     }
 
+    /*email validation*/
     public static boolean validateEmail(EditText editText) {
 
         if (TextUtils.isEmpty(editText.getText().toString())) {
@@ -35,6 +36,12 @@ public class Utils {
         return matcher.matches();
     }
 
-
-
+    /*mobile number validation*/
+    public static final boolean isValidPhoneNumber(CharSequence target) {
+        if (target.length() < 6 || target.length() > 13) {
+            return false;
+        } else {
+            return android.util.Patterns.PHONE.matcher(target).matches();
+        }
+    }
 }

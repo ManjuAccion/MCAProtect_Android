@@ -40,7 +40,6 @@ public class MPinLoginActivity extends BaseActivity implements View.OnClickListe
         mChangeMpinTextview.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
 
-
         pinEntryView.setOnPinEnteredListener(new PinEntryView.OnPinEnteredListener() {
             @Override
             public void onPinEntered(String pin) {
@@ -57,22 +56,20 @@ public class MPinLoginActivity extends BaseActivity implements View.OnClickListe
                 if (mPinValue.length() <= 3) {
                     validateInput(mPinValue);
                 } else {
-                    Intent dashBoardActivity = new Intent(this, DashboardActivity.class);
+                    Intent dashBoardActivity = new Intent(MPinLoginActivity.this, DashboardActivity.class);
                     startActivity(dashBoardActivity);
                 }
-
                 break;
+
             case R.id.forgot_mpin_textview:
                 Intent forgotmPin = new Intent(this, ReSetmPINActivity.class);
                 startActivity(forgotmPin);
-
                 break;
+
             case R.id.change_mpin_textview:
                 Intent changemPin = new Intent(this, ChangeMpinActivity.class);
                 startActivity(changemPin);
-
                 break;
-
         }
     }
 

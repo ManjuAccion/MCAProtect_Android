@@ -76,8 +76,8 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     }
 
     private boolean validateInput() {
-        if (mMobileNumber.length() == 0 || !Utils.validateEmail(mEmailidNumberEdittext)) {
-            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_valid_mail));
+        if (mMobileNumber.length() == 0 || (!Utils.validateEmail(mEmailidNumberEdittext) && !Utils.isValidPhoneNumber(mMobileNumber))) {
+            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_valid_mail_phone_number));
             return false;
         }
         return true;

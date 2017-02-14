@@ -2,20 +2,21 @@ package org.mcaprotect.broker.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.utils.McaConstants;
+import org.mcaprotect.broker.utils.SharedPreferenceUtils;
 import org.mcaprotect.broker.utils.UiUtils;
 import org.mcaprotect.broker.utils.Utils;
 
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView mErrorBanner, mAboutUsTextview, mTermsConditionsTextview, mPrivacyTextview, mNewUserTextview,
             mForgotPasswordTextview, mLoginTextview;
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void setUpLayout() {
+        boolean isRememberPasswordEnable = SharedPreferenceUtils.getBooleanPreference(LoginActivity.this, SharedPreferenceUtils.REMEMBER_PASSWORD);
         mErrorBanner = (TextView) findViewById(R.id.error_banner);
         mEmailEdittext = (EditText) findViewById(R.id.email_edittext);
         mPasswordEdittext = (EditText) findViewById(R.id.password_edittext);
@@ -55,6 +57,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mTermsConditionsTextview.setOnClickListener(this);
         mPrivacyTextview.setOnClickListener(this);
         mRememberPasswordCheckbox.setOnClickListener(this);
+
+        if (isRememberPasswordEnable) {
+            mRememberPasswordCheckbox.setChecked(true);
+            String userMailID = SharedPreferenceUtils.getStringPreference(getApplicationContext(), SharedPreferenceUtils.USER_MAIL_ID);
+            String userPassword = SharedPreferenceUtils.getStringPreference(getApplicationContext(), SharedPreferenceUtils.USER_PASSWORD);
+
+            mEmailEdittext.setText(userMailID);
+            mPasswordEdittext.setText(userPassword);
+        }
+
+        mRememberPasswordCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    SharedPreferenceUtils.setBooleanPreference(getApplicationContext(), SharedPreferenceUtils.REMEMBER_PASSWORD, true);
+                    SharedPreferenceUtils.setStringPreference(getApplicationContext(), SharedPreferenceUtils.USER_MAIL_ID, mEmailEdittext.getText().toString());
+                    SharedPreferenceUtils.setStringPreference(getApplicationContext(), SharedPreferenceUtils.USER_PASSWORD, mPasswordEdittext.getText().toString());
+                } else {
+                    SharedPreferenceUtils.setBooleanPreference(getApplicationContext(), SharedPreferenceUtils.REMEMBER_PASSWORD, false);
+                }
+            }
+        });
     }
 
     private boolean validateInput() {
@@ -73,13 +97,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.login_button:
                 if (validateInput()) {
-                    Intent dashBoardActivity = new Intent(LoginActivity.this, DashboardActivity.class);
-                    startActivity(dashBoardActivity);
+                    Intent mPinActivity = new Intent(LoginActivity.this, MPinLoginActivity.class);
+                    startActivity(mPinActivity);
                 }
                 break;
 
             case R.id.forgot_password_textview:
-                Intent forgotPassword = new Intent(LoginActivity.this, ReSetmPINActivity.class);
+                Intent forgotPassword = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(forgotPassword);
                 break;
 

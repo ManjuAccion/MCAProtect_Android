@@ -71,7 +71,6 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/mailid_hint"
                     android:inputType="textEmailAddress"
-                    android:textColorHint="@color/app_blue_40_percent"
                     android:textSize="@dimen/hint_edittext_size" />
             </android.support.design.widget.TextInputLayout>
 

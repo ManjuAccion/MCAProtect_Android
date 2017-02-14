@@ -1,5 +1,6 @@
 package org.mcaprotect.broker.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,6 +47,9 @@ public class EnterNewPasswordActivity extends BaseActivity implements View.OnCli
         } else if (mConfirmPasswordEdittext.getText().length() == 0) {
             UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_confirm_password));
             return false;
+        } else if (!mPasswordEdittext.getText().toString().equals(mConfirmPasswordEdittext.getText().toString())) {
+            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_password_confirm_password));
+            return false;
         }
         return true;
     }
@@ -55,7 +59,8 @@ public class EnterNewPasswordActivity extends BaseActivity implements View.OnCli
         switch (v.getId()) {
             case R.id.change_password_button:
                 if (validateInput()) {
-                    finish();
+                    Intent loginActivity = new Intent(this, LoginActivity.class);
+                    startActivity(loginActivity);
                 }
                 break;
         }

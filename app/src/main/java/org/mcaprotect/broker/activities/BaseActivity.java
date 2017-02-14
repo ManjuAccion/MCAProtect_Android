@@ -1,6 +1,7 @@
 package org.mcaprotect.broker.activities;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -61,5 +62,17 @@ public class BaseActivity extends AppCompatActivity {
     protected void onRestart() {
         QLog.v("Class:" + ((Object) this).getClass().getSimpleName());
         super.onRestart();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        QLog.v("Class:" + ((Object) this).getClass().getSimpleName());
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        QLog.v("Class:" + ((Object) this).getClass().getSimpleName());
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }

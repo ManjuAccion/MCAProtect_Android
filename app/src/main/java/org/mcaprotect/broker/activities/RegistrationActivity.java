@@ -83,7 +83,7 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         if (mBusinessNameEdittext.getText().length() == 0) {
             UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_business_name));
             return false;
-        } else if (mEmailIdEdittext.getText().length() == 0 && !Utils.validateEmail(mEmailIdEdittext)) {
+        } else if (mEmailIdEdittext.getText().length() == 0 || !Utils.validateEmail(mEmailIdEdittext)) {
             UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_valid_mail));
             return false;
         } else if (mPhoneNumberEdittext.getText().length() == 0) {
@@ -95,6 +95,9 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         } else if (mConfirmPasswordEdittext.getText().length() == 0) {
             UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_confirm_password));
             return false;
+        } else if(!mPasswordEdittext.getText().toString().equals(mConfirmPasswordEdittext.getText().toString())){
+            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_password_confirm_password));
+            return  false;
         }
         return true;
     }

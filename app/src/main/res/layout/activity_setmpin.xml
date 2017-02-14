@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/header_navigation" />
-
     <include layout="@layout/footer" />
 
     <include layout="@layout/layout_error_banner" />
@@ -25,6 +23,10 @@
             android:layout_marginLeft="@dimen/loginscreen_left_margin"
             android:layout_marginRight="@dimen/loginscreen_right_margin"
             android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -66,8 +68,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/new_mpin"
                 android:layout_marginTop="@dimen/title_to_edittext_textview_space"
+                android:text="@string/new_mpin"
                 android:textColor="@color/app_blue_60_percent"
                 android:textSize="@dimen/screen_message_textsize" />
 
