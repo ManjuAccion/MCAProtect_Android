@@ -39,6 +39,7 @@ public class EnterNewPasswordActivity extends BaseActivity implements View.OnCli
         UiUtils.lightItalicTextView(new TextView[]{mPassConditionTextview});
 
         mChangePasswordButton.setOnClickListener(this);
+        mPasswordEdittext.requestFocus();
     }
 
     private boolean validateInput() {

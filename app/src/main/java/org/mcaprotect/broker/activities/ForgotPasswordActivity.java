@@ -67,6 +67,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
                         @Override
                         public void onClick(View v) {
                             Intent newPasswordScreen = new Intent(ForgotPasswordActivity.this, EnterNewPasswordActivity.class);
+                            newPasswordScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(newPasswordScreen);
                         }
                     });
