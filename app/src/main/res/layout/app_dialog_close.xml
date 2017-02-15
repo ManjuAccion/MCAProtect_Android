@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/loginscreen_left_margin"
+    android:layout_marginRight="@dimen/loginscreen_right_margin"
+    android:layout_marginTop="@dimen/appicon_to_title_space"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/popup_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/popup_title"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/appicon_to_title_space">
+
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:text="@string/ok_button"
+            android:textColor="@color/white_color" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:text="@string/cancel_textview"
+            android:textColor="@color/white_color" />
+
+    </LinearLayout>
+
+</RelativeLayout>

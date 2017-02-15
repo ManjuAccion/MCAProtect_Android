@@ -104,4 +104,9 @@
     <string name="skip_text">Skip</string>
 
 
+    <!--dialog -->
+    <string name="alert_dismiss">Are you sure you want to close the Application</string>
+    <string name="yes_textview">Yes</string>
+    <string name="cancel_textview">Cancel</string>
+
 </resources>

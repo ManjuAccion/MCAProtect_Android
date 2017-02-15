@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
+import org.mcaprotect.broker.utils.DialogUtils;
 import org.mcaprotect.broker.utils.PinEntryView;
 import org.mcaprotect.broker.utils.UiUtils;
 
@@ -58,6 +59,7 @@ public class MPinLoginActivity extends BaseActivity implements View.OnClickListe
                 } else {
                     Intent dashBoardActivity = new Intent(MPinLoginActivity.this, DashboardActivity.class);
                     startActivity(dashBoardActivity);
+                    finish();
                 }
                 break;
 
@@ -79,5 +81,11 @@ public class MPinLoginActivity extends BaseActivity implements View.OnClickListe
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        DialogUtils.showAppCloseDialog(this);
     }
 }

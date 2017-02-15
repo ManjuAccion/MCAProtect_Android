@@ -99,6 +99,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 if (validateInput()) {
                     Intent mPinActivity = new Intent(LoginActivity.this, MPinLoginActivity.class);
                     startActivity(mPinActivity);
+                    finish();
                 }
                 break;
 
