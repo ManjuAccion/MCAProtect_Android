@@ -8,7 +8,7 @@ import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.fragments.DealPipelineFragment;
 import org.mcaprotect.broker.network.response.model.ApplicationState;
 
-public class ApplicationsDetailActivity extends AppCompatActivity {
+public class ApplicationsDetailActivity extends BaseActivity {
 
     ApplicationState mApplicationState;
 

@@ -66,6 +66,7 @@ public class ReSetmPINActivity extends Activity implements View.OnClickListener 
                         @Override
                         public void onClick(View v) {
                             Intent setNewmPIN = new Intent(ReSetmPINActivity.this, SetNewmPINActivity.class);
+                            setNewmPIN.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(setNewmPIN);
                             finish();
                         }

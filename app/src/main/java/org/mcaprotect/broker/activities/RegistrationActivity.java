@@ -71,7 +71,9 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
                         public void onClick(View v) {
                             Intent setNewmpinactivity = new Intent(RegistrationActivity.this, SetNewmPINActivity.class);
                             setNewmpinactivity.putExtra(McaConstants.SCREEN_NAME, McaConstants.REGISTRATION);
+                            setNewmpinactivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(setNewmpinactivity);
+                            finish();
                         }
                     });
                 }
@@ -95,9 +97,9 @@ public class RegistrationActivity extends BaseActivity implements View.OnClickLi
         } else if (mConfirmPasswordEdittext.getText().length() == 0) {
             UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_confirm_password));
             return false;
-        } else if(!mPasswordEdittext.getText().toString().equals(mConfirmPasswordEdittext.getText().toString())){
+        } else if (!mPasswordEdittext.getText().toString().equals(mConfirmPasswordEdittext.getText().toString())) {
             UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_password_confirm_password));
-            return  false;
+            return false;
         }
         return true;
     }

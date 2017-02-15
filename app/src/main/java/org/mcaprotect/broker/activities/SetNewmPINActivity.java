@@ -8,11 +8,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
-import org.mcaprotect.broker.utils.McaConstants;
+import org.mcaprotect.broker.utils.DialogUtils;
 import org.mcaprotect.broker.utils.NavigationUtils;
 import org.mcaprotect.broker.utils.PinEntryView;
 import org.mcaprotect.broker.utils.UiUtils;
-import org.mcaprotect.broker.utils.Utils;
 
 /**
  * Created by al1383 on 2/7/2017.
@@ -49,20 +48,7 @@ public class SetNewmPINActivity extends Activity implements View.OnClickListener
         UiUtils.lightItalicTextView(new TextView[]{mMpinTextview});
 
         mSetpinButton.setOnClickListener(this);
-
-        mNewpinEdittext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mNewpinEdittext.requestFocus();
-            }
-        });
-
-        mConfirmNewpinEdittext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mConfirmNewpinEdittext.requestFocus();
-            }
-        });
+        mNewpinEdittext.requestFocus();
 
         mNewpinEdittext.setOnPinEnteredListener(new PinEntryView.OnPinEnteredListener() {
             @Override
@@ -108,5 +94,10 @@ public class SetNewmPINActivity extends Activity implements View.OnClickListener
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        DialogUtils.showAppCloseDialog(this);
     }
 }

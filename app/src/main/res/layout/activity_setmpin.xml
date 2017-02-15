@@ -13,9 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/footer"
-        android:layout_below="@+id/header"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/header_to_icon_space">
+        android:layout_below="@+id/header">
 
         <LinearLayout
             android:layout_width="match_parent"

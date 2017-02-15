@@ -79,7 +79,7 @@ public class ChangeMpinActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onPinEntered(String pin) {
                 mConfirmNewPin = pin;
-
+                mNewpinEdittext.requestFocus();
             }
         });
     }
@@ -96,8 +96,9 @@ public class ChangeMpinActivity extends BaseActivity implements View.OnClickList
                     DialogUtils.fullScreenErrorDialogWithOkListener(this, String.format(getString(R.string.set_mpin_sucess_message)), "", getResources().getString(R.string.continue_button), new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent newPasswordScreen = new Intent(ChangeMpinActivity.this, MPinLoginActivity.class);
-                            startActivity(newPasswordScreen);
+                            Intent dashBoardScreen = new Intent(ChangeMpinActivity.this, DashboardActivity.class);
+                            dashBoardScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(dashBoardScreen);
                             finish();
                         }
                     });
