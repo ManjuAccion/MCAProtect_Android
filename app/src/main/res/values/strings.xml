@@ -109,4 +109,13 @@
     <string name="yes_textview">Yes</string>
     <string name="cancel_textview">Cancel</string>
 
+    <!--Sidemenu-->
+    <string name="sidemenu_dashboard">Dashboard</string>
+    <string name="sidemenu_merchant_application">Merchant Application</string>
+    <string name="sidemenu_saved_application">Saved Application</string>
+    <string name="sidemenu_funding_program">Funding Programa</string>
+    <string name="sidemenu_communication">Communicaation</string>
+    <string name="sidemenu_logout">Logout</string>
+    <string name="sidemenu_version">Version</string>
+
 </resources>

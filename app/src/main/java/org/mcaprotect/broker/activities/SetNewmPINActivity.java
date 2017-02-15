@@ -75,7 +75,8 @@ public class SetNewmPINActivity extends Activity implements View.OnClickListener
                 break;
             case R.id.setpin_button:
                 if (validateInput()) {
-                    Intent dashBoardActivity = new Intent(SetNewmPINActivity.this, LoginActivity.class);
+                    Intent dashBoardActivity = new Intent(SetNewmPINActivity.this, DashboardActivity.class);
+                    dashBoardActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(dashBoardActivity);
                 }
                 break;

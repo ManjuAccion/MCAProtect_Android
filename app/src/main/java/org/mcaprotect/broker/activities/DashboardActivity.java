@@ -5,10 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.PopupMenu;
-import android.view.MenuInflater;
 import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,24 +14,29 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.mcaprotect.broker.BuildConfig;
 import org.mcaprotect.broker.R;
-import org.mcaprotect.broker.custom_views.CustomTextView;
 import org.mcaprotect.broker.fragments.DealPipelineFragment;
 import org.mcaprotect.broker.fragments.DealsFundedFragment;
 import org.mcaprotect.broker.fragments.PerformanceComparisonFragment;
 import org.mcaprotect.broker.utils.UiUtils;
 
-public class DashboardActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
-    DrawerLayout mDrawerLayout;
+    private DrawerLayout mDrawerLayout;
+    private RelativeLayout sideMenu;
+    private ScrollView scrollviewHolder;
     private LinearLayout mDealPipelineLinearLayout, mPerformanceComparisonLinearLayout, mDealsFundedLinearLayout;
     private FrameLayout mContentDashboardFrameLayout;
     private ImageView mLeftMenuImageView, mRightMenuImageView;
     private Fragment mCurrentFragment, mDealPipelineFramgnet, mPerformanceComparisonFragment, mDealsFundedFragment;
-    private TextView mBottomTabDealPipelineTextView,mBottomTabPerformanceComparisonTextView,mBottomTabDealsFundedTextView;
+    private TextView mBottomTabDealPipelineTextView, mBottomTabPerformanceComparisonTextView, mBottomTabDealsFundedTextView,
+            mSidemenuDashboardTextview, mSidemenuMerchantAppTextview, mSidemenuSavedAppTextview, mSidemenuFundingProgramTextview,
+            mSidemenuCommunicationTextview, mVersionTextview, mLogoutTextview;
 
 
     private final int SELECTED_TAB_DEAL_PIPELINE = 1,
@@ -48,30 +50,9 @@ public class DashboardActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
-
-     /*   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-*/
-        //   DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-/*        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();*/
-
-       /* NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);*/
 
         initialiseViews();
         selectDealPipeline();
-
-        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
 
@@ -84,10 +65,21 @@ public class DashboardActivity extends AppCompatActivity
         mDealsFundedLinearLayout = (LinearLayout) findViewById(R.id.deals_funded_linearlayout);
         mLeftMenuImageView = (ImageView) findViewById(R.id.left_menu_imageview);
         mRightMenuImageView = (ImageView) findViewById(R.id.right_menu_imageview);
-        mBottomTabDealPipelineTextView = (TextView) findViewById(R.id.bottom_tab_deal_pipeline_textview) ;
-        mBottomTabPerformanceComparisonTextView = (TextView) findViewById(R.id.bottom_tab_performance_comparison_textview) ;
-        mBottomTabDealsFundedTextView = (TextView) findViewById(R.id.bottom_tab_deals_funded_textview) ;
+        mBottomTabDealPipelineTextView = (TextView) findViewById(R.id.bottom_tab_deal_pipeline_textview);
+        mBottomTabPerformanceComparisonTextView = (TextView) findViewById(R.id.bottom_tab_performance_comparison_textview);
+        mBottomTabDealsFundedTextView = (TextView) findViewById(R.id.bottom_tab_deals_funded_textview);
 
+        // sidemenu
+        sideMenu = (RelativeLayout) findViewById(R.id.side_menu);
+        scrollviewHolder = (ScrollView) findViewById(R.id.scrollview_holder);
+        mSidemenuDashboardTextview = (TextView) findViewById(R.id.sidemenu_dashboard_textview);
+        mSidemenuMerchantAppTextview = (TextView) findViewById(R.id.sidemenu_merchant_app_textview);
+        mSidemenuSavedAppTextview = (TextView) findViewById(R.id.sidemenu_saved_app_textview);
+        mSidemenuFundingProgramTextview = (TextView) findViewById(R.id.sidemenu_funding_program_textview);
+        mSidemenuCommunicationTextview = (TextView) findViewById(R.id.sidemenu_communication_textview);
+        mVersionTextview = (TextView) findViewById(R.id.version_textview);
+        mLogoutTextview = (TextView) findViewById(R.id.logout_textview);
+        mVersionTextview.setText(getResources().getString(R.string.sidemenu_version) + " " + BuildConfig.VERSION_NAME);
 
         mDealPipelineLinearLayout.setOnClickListener(this);
         mPerformanceComparisonLinearLayout.setOnClickListener(this);
@@ -95,8 +87,15 @@ public class DashboardActivity extends AppCompatActivity
         mLeftMenuImageView.setOnClickListener(this);
         mRightMenuImageView.setOnClickListener(this);
 
-        UiUtils.regularTextView(new TextView[]{mBottomTabDealPipelineTextView,mBottomTabPerformanceComparisonTextView,mBottomTabDealsFundedTextView});
-        UiUtils.mediumTextView(new TextView[]{(TextView)findViewById(R.id.title_textview)});
+        mDrawerLayout.addDrawerListener(drawerListener);
+        mSidemenuDashboardTextview.setOnClickListener(this);
+        mSidemenuMerchantAppTextview.setOnClickListener(this);
+        mSidemenuSavedAppTextview.setOnClickListener(this);
+        mSidemenuFundingProgramTextview.setOnClickListener(this);
+        mSidemenuCommunicationTextview.setOnClickListener(this);
+
+        UiUtils.regularTextView(new TextView[]{mBottomTabDealPipelineTextView, mBottomTabPerformanceComparisonTextView, mBottomTabDealsFundedTextView});
+        UiUtils.mediumTextView(new TextView[]{(TextView) findViewById(R.id.title_textview)});
 
     }
 
@@ -133,30 +132,6 @@ public class DashboardActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        mDrawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
     @Override
     public void onClick(View v) {
 
@@ -170,9 +145,26 @@ public class DashboardActivity extends AppCompatActivity
             case R.id.deals_funded_linearlayout:
                 selectDealsFunded();
                 break;
+
             case R.id.left_menu_imageview:
-               // mDrawerLayout.openDrawer(GravityCompat.START);
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
+
+            case R.id.sidemenu_dashboard_textview:
+                break;
+
+            case R.id.sidemenu_merchant_app_textview:
+                break;
+
+            case R.id.sidemenu_saved_app_textview:
+                break;
+
+            case R.id.sidemenu_funding_program_textview:
+                break;
+
+            case R.id.sidemenu_communication_textview:
+                break;
+
             case R.id.right_menu_imageview:
 /*
                 BaseInputConnection mInputConnection = new BaseInputConnection(v, true);
@@ -194,10 +186,33 @@ public class DashboardActivity extends AppCompatActivity
                /* Intent intent = new Intent(this,RightMenuActivity.class);
                 startActivity(intent);*/
                 break;
+
+            default:
+                break;
+        }
+    }
+
+    DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
+        @Override
+        public void onDrawerSlide(View drawerView, float slideOffset) {
+
         }
 
+        @Override
+        public void onDrawerOpened(View drawerView) {
 
-    }
+        }
+
+        @Override
+        public void onDrawerClosed(View drawerView) {
+
+        }
+
+        @Override
+        public void onDrawerStateChanged(int newState) {
+
+        }
+    };
 
 
     private void addFragment(Fragment fragment) {
@@ -260,9 +275,9 @@ public class DashboardActivity extends AppCompatActivity
                 mPerformanceComparisonLinearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.bottom_bar_bg_color));
                 mDealsFundedLinearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.bottom_bar_bg_color));
 
-                mBottomTabDealPipelineTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_on_select_text_color));
-                mBottomTabPerformanceComparisonTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_text_color));
-                mBottomTabDealsFundedTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_text_color));
+                mBottomTabDealPipelineTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_on_select_text_color));
+                mBottomTabPerformanceComparisonTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_text_color));
+                mBottomTabDealsFundedTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_text_color));
 
                 break;
 
@@ -271,9 +286,9 @@ public class DashboardActivity extends AppCompatActivity
                 mPerformanceComparisonLinearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.bottom_bar_on_select_bg_color));
                 mDealsFundedLinearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.bottom_bar_bg_color));
 
-                mBottomTabDealPipelineTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_text_color));
-                mBottomTabPerformanceComparisonTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_on_select_text_color));
-                mBottomTabDealsFundedTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_text_color));
+                mBottomTabDealPipelineTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_text_color));
+                mBottomTabPerformanceComparisonTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_on_select_text_color));
+                mBottomTabDealsFundedTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_text_color));
                 break;
 
             case SELECTED_TAB_DEALS_FUNDED:
@@ -281,14 +296,10 @@ public class DashboardActivity extends AppCompatActivity
                 mPerformanceComparisonLinearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.bottom_bar_bg_color));
                 mDealsFundedLinearLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.bottom_bar_on_select_bg_color));
 
-                mBottomTabDealPipelineTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_text_color));
-                mBottomTabPerformanceComparisonTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_text_color));
-                mBottomTabDealsFundedTextView.setTextColor(ContextCompat.getColor(this,R.color.bottom_bar_on_select_text_color));
+                mBottomTabDealPipelineTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_text_color));
+                mBottomTabPerformanceComparisonTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_text_color));
+                mBottomTabDealsFundedTextView.setTextColor(ContextCompat.getColor(this, R.color.bottom_bar_on_select_text_color));
                 break;
-
         }
-
-
     }
-
 }
