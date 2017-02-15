@@ -145,10 +145,13 @@
     </LinearLayout>
 
 
-    <com.github.mikephil.charting.charts.HorizontalBarChart
+    <ListView
         android:id="@+id/chart1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/selected_time_linearlayout" />
+        android:layout_below="@id/selected_time_linearlayout"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="@color/white_color"/>
 
 </RelativeLayout>

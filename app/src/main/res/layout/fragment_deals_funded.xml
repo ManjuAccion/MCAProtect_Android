@@ -30,12 +30,135 @@
         android:textSize="@dimen/dashboard_screen_text_size" />
 
 
-    <com.github.mikephil.charting.charts.HorizontalBarChart
+    <!--<com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/chart1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/instruction_textview"
-        android:background="@android:color/white" />
+        android:background="@android:color/white" />-->
+
+    <LinearLayout
+        android:id="@+id/range_scale_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instruction_textview"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:gravity="right"
+                />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="10dp"
+                android:background="@color/app_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="($)" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="100"
+                    android:gravity="right"/>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="10dp"
+                    android:background="@color/app_gray"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="200"
+                    android:gravity="right"/>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="10dp"
+                    android:background="@color/app_gray"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="300"
+                    android:gravity="right"/>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="10dp"
+                    android:background="@color/app_gray"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="400"
+                    android:gravity="right"/>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="10dp"
+                    android:background="@color/app_gray"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="500"
+                    android:gravity="right"/>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="10dp"
+                    android:background="@color/app_gray"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="600"
+                    android:gravity="right"/>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="10dp"
+                    android:background="@color/app_gray"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/app_gray"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/deals_funded_graph_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/range_scale_linearlayout"
+        android:background="@color/white_color"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
+        android:layout_margin="20dp"/>
 
 
 </RelativeLayout>

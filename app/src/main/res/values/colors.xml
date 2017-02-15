@@ -49,7 +49,7 @@
     <color name="dashboard_screen_item_label_tex_color">#8896A1</color>
     <color name="dashboard_screen_item_value_text_color">#485A66</color>
 
-
+    <color name="bar_item_color">@android:color/holo_blue_dark</color>
 
 
 
