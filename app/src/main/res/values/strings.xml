@@ -32,6 +32,7 @@
     <string name="current_quarter">Current Quarter</string>
 
     <!--error messages-->
+    <string name="error_valid_mail_phone_number">Please enter a valid email or Phone number</string>
     <string name="error_valid_mail">Please enter a valid email address</string>
     <string name="error_password">Please enter valid password</string>
     <string name="error_business_name">Please enter buniness name</string>
