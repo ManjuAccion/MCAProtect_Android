@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
+import org.mcaprotect.broker.utils.DialogUtils;
 import org.mcaprotect.broker.utils.UiUtils;
 
 /**
@@ -64,5 +65,10 @@ public class EnterNewPasswordActivity extends BaseActivity implements View.OnCli
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        DialogUtils.showAppCloseDialog(this);
     }
 }
