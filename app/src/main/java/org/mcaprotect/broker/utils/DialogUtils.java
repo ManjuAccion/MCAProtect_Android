@@ -3,7 +3,6 @@ package org.mcaprotect.broker.utils;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
-import org.mcaprotect.broker.activities.LoginActivity;
 
 /**
  * Created by al1383 on 2/8/2017.

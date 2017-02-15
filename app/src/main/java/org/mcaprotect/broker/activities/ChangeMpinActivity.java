@@ -71,7 +71,6 @@ public class ChangeMpinActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onPinEntered(String pin) {
                 mNewPin = pin;
-                mOldpinEdittext.requestFocus();
                 mConfirmNewpinEdittext.requestFocus();
             }
         });
@@ -80,8 +79,7 @@ public class ChangeMpinActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onPinEntered(String pin) {
                 mConfirmNewPin = pin;
-                mOldpinEdittext.requestFocus();
-                mNewpinEdittext.requestFocus();
+
             }
         });
     }
@@ -100,6 +98,7 @@ public class ChangeMpinActivity extends BaseActivity implements View.OnClickList
                         public void onClick(View v) {
                             Intent newPasswordScreen = new Intent(ChangeMpinActivity.this, MPinLoginActivity.class);
                             startActivity(newPasswordScreen);
+                            finish();
                         }
                     });
                 }
@@ -116,6 +115,12 @@ public class ChangeMpinActivity extends BaseActivity implements View.OnClickList
             return false;
         } else if (mConfirmNewPin.toString().isEmpty() && mConfirmNewPin.length() <= 3) {
             UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_confirm_pin));
+            return false;
+        } else if (!mNewPin.toString().equals(mConfirmNewPin.toString())) {
+            UiUtils.showErrorBanner(mErrorBanner, getString(R.string.error_pin_confirm_pin));
+            mNewpinEdittext.clearText();
+            mConfirmNewpinEdittext.clearText();
+            mNewpinEdittext.requestFocus();
             return false;
         }
         return true;

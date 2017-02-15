@@ -19,6 +19,8 @@ public final class QLog {
      */
     public static final int LOGGING_LEVEL = ALL;
 
+    //public static final int LOGGING_LEVEL = BuildConfig.QLOG_LEVEL;
+
 
     /*
      * For filtering app specific output

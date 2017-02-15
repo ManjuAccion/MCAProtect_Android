@@ -41,6 +41,8 @@
     <string name="error_old_pin">Please enter your old Pin</string>
     <string name="error_new_pin">Please enter new pin</string>
     <string name="error_confirm_pin">Please enter confirm pin</string>
+    <string name="error_password_confirm_password">password and confirm password not matched</string>
+    <string name="error_pin_confirm_pin">pin and confirm pin not matchd</string>
 
     <!--Loging screen-->
     <string name="mca_protect_message">\u00a9 2017 MCA Protect All right reserved</string>
@@ -54,6 +56,7 @@
 
     <!--forgot password-->
     <string name="reset_password">Reset Password</string>
+    <string name="email_number_field">email id / mobile number</string>
     <string name="mailid_message">Enter your registered email id / mobile number</string>
     <string name="popup_confirm_mail_message">An email with a confirmation link has been send to %1$s for resetting your password.</string>
 
@@ -97,6 +100,7 @@
     <string name="reset_mpin_message">Enter a 4-Digit PIN to help prevent other people from using this app</string>
     <string name="set_newmpin_title">Set new mPIN</string>
     <string name="mpin_message_title">(Mobile Persional Identification Number)</string>
+    <string name="skip_text">Skip</string>
 
 
 </resources>

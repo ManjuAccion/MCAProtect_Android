@@ -12,22 +12,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="11dp"
         android:clickable="true"
         android:padding="@dimen/header_btn_padding"
-        android:layout_marginLeft="11dp"
         android:src="@drawable/back_selector" />
 
 
-    <ImageView
+    <TextView
         android:id="@+id/cross_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:clickable="true"
-        android:padding="@dimen/header_btn_padding"
         android:layout_marginRight="11dp"
-        android:src="@drawable/cross_selector" />
+        android:clickable="true"
+        android:singleLine="true"
+        android:textAllCaps="false"
+        android:text="@string/skip_text"
+        android:textColor="@color/app_red"
+        android:padding="@dimen/header_btn_padding" />
 
 
     <TextView
@@ -38,7 +41,7 @@
         android:layout_toLeftOf="@id/cross_imageview"
         android:layout_toRightOf="@id/back_imageview"
         android:gravity="center"
-        android:textAllCaps="false"
         android:singleLine="true"
+        android:textAllCaps="false"
         android:textStyle="bold" />
 </RelativeLayout>

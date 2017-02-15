@@ -18,7 +18,7 @@ public class NavigationUtils {
     public View mBaseView;
     public Context mContext;
     public ImageView backButton;
-    public ImageView crossButton;
+    public TextView crossButton;
     public TextView headerTitle;
 
 
@@ -30,7 +30,7 @@ public class NavigationUtils {
 
     public void initHeader() {
         backButton = (ImageView) mBaseView.findViewById(R.id.back_imageview);
-        crossButton = (ImageView) mBaseView.findViewById(R.id.cross_imageview);
+        crossButton = (TextView) mBaseView.findViewById(R.id.cross_imageview);
         headerTitle = (TextView) mBaseView.findViewById(R.id.title_textview);
     }
 
@@ -76,11 +76,6 @@ public class NavigationUtils {
 
     public void setLeftNavListener(View.OnClickListener listener) {
         backButton.setOnClickListener(listener);
-    }
-
-    public void setRightImage(int image) {
-        crossButton.setImageResource(0);
-        crossButton.setImageResource(image);
     }
 
     public void setRightNavListener(View.OnClickListener listener) {

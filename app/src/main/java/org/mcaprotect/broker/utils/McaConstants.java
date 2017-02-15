@@ -12,6 +12,8 @@ public class McaConstants {
     public static final String ABOUT_US = "ABOUT_US";
     public static final String TERMS_CONDITION = "TERMS_CONDITION";
     public static final String PRIVACY_POLICY = "PRIVACY_POLICY";
+    public static final String REGISTRATION = "REGISTRATION";
+
 
     /*TODO need to update html files here*/
     public static final String ABOUT_US_HTML = "http://www.w3schools.com/html/html_examples.asp";

@@ -11,7 +11,9 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DashboardActivity">
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +22,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.DashboardActivity"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -39,22 +41,28 @@
             android:name=".activities.AboutusTcPrivacyWebviewActivity"
             android:screenOrientation="portrait" />
 
-        <!--
-            <activity
-            android:name=".activities.MPinActivity"
+        <activity
+            android:name=".activities.ApplicationsDetailActivity"
             android:screenOrientation="portrait" />
-        -->
-        <activity android:name=".activities.ApplicationsDetailActivity" />
-        <activity android:name=".activities.RightMenuActivity"></activity>
+
+        <activity
+            android:name=".activities.RightMenuActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".activities.ChangeMpinActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activities.ResetmPINActivity"
+            android:name=".activities.ReSetmPINActivity"
             android:screenOrientation="portrait" />
+
         <activity
-            android:name=".activities.SetmPINActivity"
+            android:name=".activities.SetNewmPINActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.MPinLoginActivity"
             android:screenOrientation="portrait" />
 
        <!-- <activity android:name=".activities.HorizontalBarChartActivity"></activity>-->
