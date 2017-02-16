@@ -17,7 +17,7 @@ import org.mcaprotect.broker.utils.UiUtils;
  * Created by al1383 on 2/7/2017.
  */
 
-public class SetNewmPINActivity extends Activity implements View.OnClickListener {
+public class SetNewmPINActivity extends BaseActivity implements View.OnClickListener {
     private Button mSetpinButton;
     private NavigationUtils mNavigationUtility;
     private TextView mMessageTextview, mMpinTextview, mSetpinTitleTextview, mErrorBanner;

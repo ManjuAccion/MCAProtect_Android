@@ -18,7 +18,7 @@ import org.mcaprotect.broker.utils.Utils;
  * Created by al1383 on 2/13/2017.
  */
 
-public class ReSetmPINActivity extends Activity implements View.OnClickListener {
+public class ReSetmPINActivity extends BaseActivity implements View.OnClickListener {
     private Button mOkButton;
     private NavigationUtils mNavigationUtility;
     private EditText mEmailidEdittext;
@@ -39,7 +39,7 @@ public class ReSetmPINActivity extends Activity implements View.OnClickListener 
         mEmailidEdittext = (EditText) findViewById(R.id.mailid_edittext);
         mMessageTextview = (TextView) findViewById(R.id.message_textview);
 
-        UiUtils.regularTextView(new TextView[]{mOkButton, mEmailidEdittext, mMessageTextview});
+        UiUtils.regularTextView(new TextView[]{mOkButton, mMessageTextview});
         UiUtils.lightTextView(new TextView[]{mEmailidEdittext});
 
         mOkButton.setOnClickListener(this);

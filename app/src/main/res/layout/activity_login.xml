@@ -53,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/mailid_hint"
                     android:inputType="textEmailAddress"
+                    android:textSize="@dimen/edittext_size"
                     android:textColorHint="@color/app_red" />
 
             </android.support.design.widget.TextInputLayout>
@@ -69,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
                     android:inputType="textWebPassword"
+                    android:textSize="@dimen/edittext_size"
                     android:textColorHint="@color/app_red" />
 
             </android.support.design.widget.TextInputLayout>

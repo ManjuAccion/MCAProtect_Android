@@ -10,7 +10,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -29,7 +28,7 @@ import org.mcaprotect.broker.fragments.PerformanceComparisonFragment;
 import org.mcaprotect.broker.utils.McaConstants;
 import org.mcaprotect.broker.utils.UiUtils;
 
-public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
+public class DashboardActivity extends BaseActivity implements View.OnClickListener {
 
     private DrawerLayout mDrawerLayout;
     private RelativeLayout mLeftSideMenu, mRightSideMenu;
@@ -205,11 +204,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.user_profile_imageview:
-                Intent profileActivity = new Intent(DashboardActivity.this, UserProfileActivity.class);
-                startActivity(profileActivity);
-                break;
-
             case R.id.profile_name_textview:
+                Intent profileActivity = new Intent(DashboardActivity.this, MyProfileActivity.class);
+                startActivity(profileActivity);
                 break;
 
             case R.id.right_menu_imageview:

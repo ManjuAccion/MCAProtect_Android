@@ -48,7 +48,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mRememberPasswordCheckbox = (CheckBox) findViewById(R.id.remember_password_checkbox);
 
         UiUtils.regularTextView(new TextView[]{mLoginButton, mRememberPasswordCheckbox, mLoginTextview});
-        UiUtils.lightTextView(new TextView[]{mAboutUsTextview, mTermsConditionsTextview, mPrivacyTextview, mForgotPasswordTextview, mNewUserTextview});
+        UiUtils.lightTextView(new TextView[]{mAboutUsTextview, mTermsConditionsTextview, mPrivacyTextview, mForgotPasswordTextview, mNewUserTextview,
+                mEmailEdittext, mPasswordEdittext});
 
         mLoginButton.setOnClickListener(this);
         mForgotPasswordTextview.setOnClickListener(this);
