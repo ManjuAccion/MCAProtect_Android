@@ -30,25 +30,26 @@
             android:orientation="horizontal"
             android:paddingTop="@dimen/appicon_to_title_space">
 
+
             <Button
-                android:id="@+id/ok_button"
+                android:id="@+id/no_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_button"
-                android:text="@string/ok_button"
+                android:text="@string/no_textview"
                 android:textColor="@color/white_color" />
 
             <Button
-                android:id="@+id/cancel_button"
+                android:id="@+id/yes_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_button"
-                android:text="@string/cancel_textview"
+                android:text="@string/yes_textview"
                 android:textColor="@color/white_color" />
 
         </LinearLayout>

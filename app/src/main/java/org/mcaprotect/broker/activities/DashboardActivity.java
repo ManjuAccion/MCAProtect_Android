@@ -3,8 +3,10 @@ package org.mcaprotect.broker.activities;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,26 +19,30 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.mcaprotect.broker.BuildConfig;
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.fragments.DealPipelineFragment;
 import org.mcaprotect.broker.fragments.DealsFundedFragment;
 import org.mcaprotect.broker.fragments.PerformanceComparisonFragment;
+import org.mcaprotect.broker.utils.McaConstants;
 import org.mcaprotect.broker.utils.UiUtils;
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
     private DrawerLayout mDrawerLayout;
-    private RelativeLayout sideMenu;
+    private RelativeLayout mLeftSideMenu, mRightSideMenu;
     private ScrollView scrollviewHolder;
     private LinearLayout mDealPipelineLinearLayout, mPerformanceComparisonLinearLayout, mDealsFundedLinearLayout;
     private FrameLayout mContentDashboardFrameLayout;
-    private ImageView mLeftMenuImageView, mRightMenuImageView;
+    private ImageView mLeftMenuImageView, mRightMenuImageView, mUserProfileImageview;
     private Fragment mCurrentFragment, mDealPipelineFramgnet, mPerformanceComparisonFragment, mDealsFundedFragment;
     private TextView mBottomTabDealPipelineTextView, mBottomTabPerformanceComparisonTextView, mBottomTabDealsFundedTextView,
             mSidemenuDashboardTextview, mSidemenuMerchantAppTextview, mSidemenuSavedAppTextview, mSidemenuFundingProgramTextview,
-            mSidemenuCommunicationTextview, mVersionTextview, mLogoutTextview;
+            mSidemenuCommunicationTextview, mVersionTextview, mLogoutTextview, mProfileNameTextview;
+    private TextView mSidemenuNotificationTextview, mSidemenuSettingsTextview, mSidemenuAboutusTextview, mSidemenuTermsofuseTextview,
+            mSidemenuPrivacyTextview, mSidemenuShareFeedbackTextview, mSidemenuShareAppTextview, mSidemenuRateUsTextview;
 
 
     private final int SELECTED_TAB_DEAL_PIPELINE = 1,
@@ -69,17 +75,41 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mBottomTabPerformanceComparisonTextView = (TextView) findViewById(R.id.bottom_tab_performance_comparison_textview);
         mBottomTabDealsFundedTextView = (TextView) findViewById(R.id.bottom_tab_deals_funded_textview);
 
-        // sidemenu
-        sideMenu = (RelativeLayout) findViewById(R.id.side_menu);
+        // sidemenu left
+        mRightSideMenu = (RelativeLayout) findViewById(R.id.right_side_menu);
+        mLeftSideMenu = (RelativeLayout) findViewById(R.id.left_side_menu);
         scrollviewHolder = (ScrollView) findViewById(R.id.scrollview_holder);
         mSidemenuDashboardTextview = (TextView) findViewById(R.id.sidemenu_dashboard_textview);
         mSidemenuMerchantAppTextview = (TextView) findViewById(R.id.sidemenu_merchant_app_textview);
         mSidemenuSavedAppTextview = (TextView) findViewById(R.id.sidemenu_saved_app_textview);
         mSidemenuFundingProgramTextview = (TextView) findViewById(R.id.sidemenu_funding_program_textview);
         mSidemenuCommunicationTextview = (TextView) findViewById(R.id.sidemenu_communication_textview);
+        mUserProfileImageview = (ImageView) findViewById(R.id.user_profile_imageview);
+        mProfileNameTextview = (TextView) findViewById(R.id.profile_name_textview);
         mVersionTextview = (TextView) findViewById(R.id.version_textview);
         mLogoutTextview = (TextView) findViewById(R.id.logout_textview);
         mVersionTextview.setText(getResources().getString(R.string.sidemenu_version) + " " + BuildConfig.VERSION_NAME);
+
+        // sidemenu rigth
+        mSidemenuNotificationTextview = (TextView) findViewById(R.id.sidemenu_notification_textview);
+        mSidemenuSettingsTextview = (TextView) findViewById(R.id.sidemenu_settings_textview);
+        mSidemenuAboutusTextview = (TextView) findViewById(R.id.sidemenu_aboutus_textview);
+        mSidemenuTermsofuseTextview = (TextView) findViewById(R.id.sidemenu_termsofuse_textview);
+        mSidemenuPrivacyTextview = (TextView) findViewById(R.id.sidemenu_privacy_textview);
+        mSidemenuShareFeedbackTextview = (TextView) findViewById(R.id.sidemenu_share_feedback_textview);
+        mSidemenuShareAppTextview = (TextView) findViewById(R.id.sidemenu_shareapp_textview);
+        mSidemenuRateUsTextview = (TextView) findViewById(R.id.sidemenu_rateus_textview);
+
+
+        mSidemenuNotificationTextview.setOnClickListener(this);
+        mSidemenuSettingsTextview.setOnClickListener(this);
+        mSidemenuAboutusTextview.setOnClickListener(this);
+        mSidemenuTermsofuseTextview.setOnClickListener(this);
+        mSidemenuPrivacyTextview.setOnClickListener(this);
+        mSidemenuShareFeedbackTextview.setOnClickListener(this);
+        mSidemenuShareAppTextview.setOnClickListener(this);
+        mSidemenuRateUsTextview.setOnClickListener(this);
+
 
         mDealPipelineLinearLayout.setOnClickListener(this);
         mPerformanceComparisonLinearLayout.setOnClickListener(this);
@@ -93,6 +123,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mSidemenuSavedAppTextview.setOnClickListener(this);
         mSidemenuFundingProgramTextview.setOnClickListener(this);
         mSidemenuCommunicationTextview.setOnClickListener(this);
+        mUserProfileImageview.setOnClickListener(this);
+        mProfileNameTextview.setOnClickListener(this);
 
         UiUtils.regularTextView(new TextView[]{mBottomTabDealPipelineTextView, mBottomTabPerformanceComparisonTextView, mBottomTabDealsFundedTextView});
         UiUtils.mediumTextView(new TextView[]{(TextView) findViewById(R.id.title_textview)});
@@ -139,57 +171,94 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             case R.id.deal_pipeline_linearlayout:
                 selectDealPipeline();
                 break;
+
             case R.id.performance_comparison_linearlayout:
                 selectPerformanceComparison();
                 break;
+
             case R.id.deals_funded_linearlayout:
                 selectDealsFunded();
                 break;
 
             case R.id.left_menu_imageview:
                 mDrawerLayout.openDrawer(GravityCompat.START);
-                break;
+                return;
 
             case R.id.sidemenu_dashboard_textview:
+                Toast.makeText(DashboardActivity.this, "Dashboard", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.sidemenu_merchant_app_textview:
+                Toast.makeText(DashboardActivity.this, "merchant_app", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.sidemenu_saved_app_textview:
+                Toast.makeText(DashboardActivity.this, "saved_app", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.sidemenu_funding_program_textview:
+                Toast.makeText(DashboardActivity.this, "funding_program", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.sidemenu_communication_textview:
+                Toast.makeText(DashboardActivity.this, "communication", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.user_profile_imageview:
+                Intent profileActivity = new Intent(DashboardActivity.this, UserProfileActivity.class);
+                startActivity(profileActivity);
+                break;
+
+            case R.id.profile_name_textview:
                 break;
 
             case R.id.right_menu_imageview:
-/*
-                BaseInputConnection mInputConnection = new BaseInputConnection(v, true);
-                KeyEvent kd = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_MENU);
-                KeyEvent ku = new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_MENU);
-                mInputConnection.sendKeyEvent(kd);
-                mInputConnection.sendKeyEvent(ku);*/
-                //openOptionsMenu();
-                //getSupportActionBar().openOptionsMenu();
-                //DashboardActivity.this.openOptionsMenu();
-                //openContextMenu(v);
+                mDrawerLayout.openDrawer(Gravity.RIGHT);
+                return;
 
+            case R.id.sidemenu_notification_textview:
+                Toast.makeText(DashboardActivity.this, "notification", Toast.LENGTH_SHORT).show();
+                break;
 
-             /*   PopupMenu popup = new PopupMenu(this, v);
-                MenuInflater inflater = popup.getMenuInflater();
-                inflater.inflate(R.menu.dashboard, popup.getMenu());
-                popup.show();*/
+            case R.id.sidemenu_settings_textview:
+                Toast.makeText(DashboardActivity.this, "settings", Toast.LENGTH_SHORT).show();
+                break;
 
-               /* Intent intent = new Intent(this,RightMenuActivity.class);
-                startActivity(intent);*/
+            case R.id.sidemenu_aboutus_textview:
+                Intent aboutUs = new Intent(DashboardActivity.this, AboutusTcPrivacyWebviewActivity.class);
+                aboutUs.putExtra(McaConstants.SCREEN_NAME, McaConstants.ABOUT_US);
+                startActivity(aboutUs);
+                break;
+
+            case R.id.sidemenu_termsofuse_textview:
+                Intent termsScreen = new Intent(DashboardActivity.this, AboutusTcPrivacyWebviewActivity.class);
+                termsScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.TERMS_CONDITION);
+                startActivity(termsScreen);
+                break;
+
+            case R.id.sidemenu_privacy_textview:
+                Intent privacyScreen = new Intent(DashboardActivity.this, AboutusTcPrivacyWebviewActivity.class);
+                privacyScreen.putExtra(McaConstants.SCREEN_NAME, McaConstants.PRIVACY_POLICY);
+                startActivity(privacyScreen);
+                break;
+
+            case R.id.sidemenu_share_feedback_textview:
+                Toast.makeText(DashboardActivity.this, "share_feedback", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.sidemenu_shareapp_textview:
+                Toast.makeText(DashboardActivity.this, "shareapp", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.sidemenu_rateus_textview:
+                Toast.makeText(DashboardActivity.this, "rateus", Toast.LENGTH_SHORT).show();
                 break;
 
             default:
                 break;
         }
+        mDrawerLayout.closeDrawer(Gravity.RIGHT);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
     DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {

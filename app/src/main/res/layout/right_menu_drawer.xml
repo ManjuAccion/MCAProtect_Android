@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/right_side_menu"
+    android:layout_width="@dimen/sidemenu_width"
+    android:layout_height="match_parent"
+    android:layout_gravity="right"
+    android:background="@color/app_gray"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollview_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/logout_textview"
+        android:layout_below="@+id/top_view">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/appicon_to_title_space"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/sidemenu_icon_left_padding">
+
+
+            <TextView
+                android:id="@+id/sidemenu_notification_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_notifications"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_notification"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+            <TextView
+                android:id="@+id/sidemenu_settings_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_settings"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_settings"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+            <TextView
+                android:id="@+id/sidemenu_aboutus_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_about_us"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_aboutus"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+            <TextView
+                android:id="@+id/sidemenu_termsofuse_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_terms_of_use"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_terms_ofuse"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+            <TextView
+                android:id="@+id/sidemenu_privacy_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_privacy"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_privacy_policy"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+            <TextView
+                android:id="@+id/sidemenu_share_feedback_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_share_feedback"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_feedback"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+            <TextView
+                android:id="@+id/sidemenu_shareapp_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_share_app"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_shareapp"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+            <TextView
+                android:id="@+id/sidemenu_rateus_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_rate_us"
+                android:drawablePadding="@dimen/sidemenu_icon_left_padding"
+                android:gravity="center|left"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/sidemenu_icons_padding"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="@string/sidemenu_rateus"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

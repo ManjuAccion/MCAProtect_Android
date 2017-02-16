@@ -105,9 +105,9 @@
 
 
     <!--dialog -->
-    <string name="alert_dismiss">Are you sure you want to close the Application</string>
+    <string name="alert_dismiss">Do u really want to exit from the application ?</string>
     <string name="yes_textview">Yes</string>
-    <string name="cancel_textview">Cancel</string>
+    <string name="no_textview">No</string>
 
     <!--Sidemenu-->
     <string name="sidemenu_dashboard">Dashboard</string>
@@ -117,5 +117,14 @@
     <string name="sidemenu_communication">Communicaation</string>
     <string name="sidemenu_logout">Logout</string>
     <string name="sidemenu_version">Version</string>
+
+    <string name="sidemenu_notification">Notification</string>
+    <string name="sidemenu_settings">Personalized Settings</string>
+    <string name="sidemenu_aboutus">About Us</string>
+    <string name="sidemenu_terms_ofuse">Terms of Use</string>
+    <string name="sidemenu_privacy_policy">Privacy Policy</string>
+    <string name="sidemenu_feedback">Share Feedback</string>
+    <string name="sidemenu_shareapp">Share App</string>
+    <string name="sidemenu_rateus">Rate US</string>
 
 </resources>

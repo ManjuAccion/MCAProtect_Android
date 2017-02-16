@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/side_menu"
+    android:id="@+id/left_side_menu"
     android:layout_width="@dimen/sidemenu_width"
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:background="@color/app_red"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/profile_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/sidemenu_icons_padding"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_profile_imageview"
+            android:layout_width="@dimen/dashboard_profile_size_original"
+            android:layout_height="@dimen/dashboard_profile_size_original"
+            android:src="@drawable/splash_logo"/>
+
+        <TextView
+            android:id="@+id/profile_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="@dimen/sidemenu_icons_padding"
+            android:text="Crest Hill"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/sidemenu_text_size" />
+    </LinearLayout>
 
     <View
         android:id="@+id/top_view"
@@ -146,32 +173,7 @@
         android:textColor="@color/white_color"
         android:textSize="@dimen/sidemenu_text_size" />
 
-    <LinearLayout
-        android:id="@+id/profile_holder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/sidemenu_icons_padding"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_profile"
-            android:layout_width="@dimen/dashboard_profile_size_original"
-            android:layout_height="@dimen/dashboard_profile_size_original"
-            android:src="@drawable/splash_logo"/>
-
-        <TextView
-            android:id="@+id/profile_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingTop="@dimen/sidemenu_icons_padding"
-            android:text="Crest Hill"
-            android:textColor="@color/white_color"
-            android:textSize="@dimen/sidemenu_text_size" />
-    </LinearLayout>
 
 
 </RelativeLayout>

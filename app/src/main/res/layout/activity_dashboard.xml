@@ -6,6 +6,8 @@
 
     <include layout="@layout/app_bar_dashboard" />
 
-    <include layout="@layout/menu_drawer" />
+    <include layout="@layout/left_menu_drawer" />
+
+    <include layout="@layout/right_menu_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

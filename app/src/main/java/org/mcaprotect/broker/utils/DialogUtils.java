@@ -84,12 +84,12 @@ public class DialogUtils {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.GRAY));
 
         TextView popupTitle = (TextView) dialog.findViewById(R.id.popup_title);
-        Button okButton = (Button) dialog.findViewById(R.id.ok_button);
-        Button cancelButton = (Button) dialog.findViewById(R.id.cancel_button);
+        Button yesButton = (Button) dialog.findViewById(R.id.yes_button);
+        Button noButton = (Button) dialog.findViewById(R.id.no_button);
 
         popupTitle.setText(context.getString(R.string.alert_dismiss));
 
-        okButton.setOnClickListener(new View.OnClickListener() {
+        yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
@@ -97,7 +97,7 @@ public class DialogUtils {
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
