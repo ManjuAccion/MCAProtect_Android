@@ -127,4 +127,8 @@
     <string name="sidemenu_shareapp">Share App</string>
     <string name="sidemenu_rateus">Rate US</string>
 
+    <!--myprofile-->
+    <string name="save_button">Save</string>
+    <string name="name">Name</string>
+
 </resources>
