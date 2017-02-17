@@ -119,7 +119,11 @@
 
     <dimen name="screen_margin_left">16dp</dimen>
     <dimen name="screen_margin_right">16dp</dimen>
+    <dimen name="screen_margin_top">16dp</dimen>
+    <dimen name="screen_margin_bottom">16dp</dimen>
 
+    <dimen name="graph_bar_text_size">10sp</dimen>
+    <dimen name="graph_bar_text_margin_bottom">3dp</dimen>
 
     <dimen name="left_strip_top_right_radius">0dp</dimen>
     <dimen name="left_strip_bottom_right_radius">0dp</dimen>

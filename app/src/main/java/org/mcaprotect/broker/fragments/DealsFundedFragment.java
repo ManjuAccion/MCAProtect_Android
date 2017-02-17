@@ -83,8 +83,8 @@ public class DealsFundedFragment extends Fragment   {
 
 
         ArrayList<DealsFundedGraph> list = new ArrayList<DealsFundedGraph>();
-        for (int i = 0; i < 10; i++) {
-            list.add(new DealsFundedGraph("John Doe "+ i, 1000000 * Math.random(),0));
+        for (int i = 0; i < 20; i++) {
+            list.add(new DealsFundedGraph("John Doe Avinash Jadaun Ashish "+ i, 1000000 * Math.random(),0));
         }
 
         double highest = 0;

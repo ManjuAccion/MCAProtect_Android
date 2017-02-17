@@ -3,9 +3,12 @@ package org.mcaprotect.broker.activities;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.Point;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -51,12 +54,42 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
     private int mCurrentSelectedTab = SELECTED_TAB_DEAL_PIPELINE;
 
 
+    public static float DEVICE_WIDTH_IN_PX ;
+    public static float DEVICE_HEIGHT_IN_PX ;
+    public static float DEVICE_WIDTH_IN_DP ;
+    public static float DEVICE_HEIGHT_IN_DP ;
+    public static float DEVICE_DENSITY;
+
+    public static float BAR_MAX_HEIGHT_DEALS_FUNDED;
+    public static float BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        initialiseViews();
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+
+        DEVICE_DENSITY = getResources().getDisplayMetrics().density;
+        DEVICE_WIDTH_IN_PX = outMetrics.widthPixels;
+        DEVICE_HEIGHT_IN_PX = outMetrics.widthPixels;
+        DEVICE_WIDTH_IN_DP = outMetrics.widthPixels / DEVICE_DENSITY;
+        DEVICE_HEIGHT_IN_DP = outMetrics.heightPixels / DEVICE_DENSITY;
+
+        float margin = getResources().getDimension(R.dimen.screen_margin_left)+ getResources().getDimension(R.dimen.screen_margin_right);
+        BAR_MAX_HEIGHT_DEALS_FUNDED = ((DEVICE_WIDTH_IN_DP - margin)*3/4)*DEVICE_DENSITY;
+        BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON =  ((DEVICE_WIDTH_IN_DP - margin-70))*DEVICE_DENSITY;
+
+
+
+
+                initialiseViews();
         selectDealPipeline();
     }
 

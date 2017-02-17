@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,17 +22,21 @@ import android.widget.TextView;
 
 import org.mcaprotect.broker.R;
 import org.mcaprotect.broker.adapters.DealPipelineAdapter;
+import org.mcaprotect.broker.adapters.DealsFundedGraphAdapter;
+import org.mcaprotect.broker.adapters.PerformanceComparisonGraphAdapter;
+import org.mcaprotect.broker.model.DealsFundedGraph;
+import org.mcaprotect.broker.model.PerformanceComparisonGraph;
 import org.mcaprotect.broker.network.response.model.ApplicationState;
 import org.mcaprotect.broker.utils.UiUtils;
 
 import java.util.ArrayList;
 
 
-public class PerformanceComparisonFragment extends Fragment implements AdapterView.OnItemSelectedListener{
+public class PerformanceComparisonFragment extends Fragment {
 
     private View mLayout;
     private Spinner mStartTimeSpinner,mEndTimeSpinner;
-
+    ListView mPerformanceComparisonGraphListView;
     public PerformanceComparisonFragment() {
         // Required empty public constructor
     }
@@ -88,19 +93,33 @@ public class PerformanceComparisonFragment extends Fragment implements AdapterVi
        // mListener = null;
     }
     private void initialiseViews(View view){
-        mStartTimeSpinner = (Spinner)view.findViewById(R.id.start_time_spinner);
-        mEndTimeSpinner = (Spinner)view.findViewById(R.id.end_time_spinner);
 
-/*
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),R.array.time_range_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mStartTimeSpinner.setAdapter(adapter);
-        mStartTimeSpinner.setOnItemSelectedListener(this);
+        mPerformanceComparisonGraphListView = (ListView)view.findViewById(R.id.performance_comparison_graph_listview);
 
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),R.array.time_range_array, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mEndTimeSpinner.setAdapter(adapter2);
-        mEndTimeSpinner.setOnItemSelectedListener(this);*/
+
+        ArrayList<PerformanceComparisonGraph> list = new ArrayList<PerformanceComparisonGraph>();
+        for (int i = 0; i < 20; i++) {
+            list.add(new PerformanceComparisonGraph("John Doe "+ i, 100 * Math.random(),100 * Math.random(),0,0));
+        }
+
+        double firstItemHighest = 0,secondItemHighest =0;
+        if(list.size()>0){
+            for (int i = 0;i<list.size();i++ ){
+                if(firstItemHighest < list.get(i).getFirstItemValue()){
+                    firstItemHighest = list.get(i).getFirstItemValue();
+                }
+                if(secondItemHighest < list.get(i).getSecondItemValue()){
+                    secondItemHighest = list.get(i).getSecondItemValue();
+                }
+            }
+        }
+        for (int i = 0;i<list.size();i++ ){
+            list.get(i).setFirstBarHeight((list.get(i).getFirstItemValue()/firstItemHighest)*100);
+            list.get(i).setSecondBarHeight((list.get(i).getSecondItemValue()/secondItemHighest)*100);
+        }
+        PerformanceComparisonGraphAdapter cda = new PerformanceComparisonGraphAdapter(getActivity(), list);
+        mPerformanceComparisonGraphListView.setAdapter(cda);
+
 
 
 
@@ -114,19 +133,7 @@ public class PerformanceComparisonFragment extends Fragment implements AdapterVi
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-    }
-    protected float getRandom(float range, float startsfrom) {
-        return (float) (Math.random() * range) + startsfrom;
-    }
 
 
 
