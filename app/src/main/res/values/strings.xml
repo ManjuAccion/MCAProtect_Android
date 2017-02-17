@@ -91,7 +91,7 @@
     <string name="mPIN_title">Enter your mPIN to login</string>
 
     <!--set mpin-->
-    <string name="enter_your_old_mpin">Change mPIN</string>
+    <string name="enter_your_old_mpin">Enter your old PIN</string>
     <string name="new_mpin">New mPIN</string>
     <string name="confirm_mpin">Confirm mPIN</string>
     <string name="set_pin">Set PIN</string>

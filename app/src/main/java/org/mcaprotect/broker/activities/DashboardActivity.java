@@ -46,6 +46,7 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
     private TextView mSidemenuNotificationTextview, mSidemenuSettingsTextview, mSidemenuAboutusTextview, mSidemenuTermsofuseTextview,
             mSidemenuPrivacyTextview, mSidemenuShareFeedbackTextview, mSidemenuShareAppTextview, mSidemenuRateUsTextview;
 
+    private ImageView mRightSidemenuOptionNav, mLeftSidemenuOptionNav;
 
     private final int SELECTED_TAB_DEAL_PIPELINE = 1,
             SELECTED_TAB_PERFORMANCE_COMPARISON = 2,
@@ -54,10 +55,10 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
     private int mCurrentSelectedTab = SELECTED_TAB_DEAL_PIPELINE;
 
 
-    public static float DEVICE_WIDTH_IN_PX ;
-    public static float DEVICE_HEIGHT_IN_PX ;
-    public static float DEVICE_WIDTH_IN_DP ;
-    public static float DEVICE_HEIGHT_IN_DP ;
+    public static float DEVICE_WIDTH_IN_PX;
+    public static float DEVICE_HEIGHT_IN_PX;
+    public static float DEVICE_WIDTH_IN_DP;
+    public static float DEVICE_HEIGHT_IN_DP;
     public static float DEVICE_DENSITY;
 
     public static float BAR_MAX_HEIGHT_DEALS_FUNDED;
@@ -82,14 +83,12 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
         DEVICE_WIDTH_IN_DP = outMetrics.widthPixels / DEVICE_DENSITY;
         DEVICE_HEIGHT_IN_DP = outMetrics.heightPixels / DEVICE_DENSITY;
 
-        float margin = getResources().getDimension(R.dimen.screen_margin_left)+ getResources().getDimension(R.dimen.screen_margin_right);
-        BAR_MAX_HEIGHT_DEALS_FUNDED = ((DEVICE_WIDTH_IN_DP - margin)*3/4)*DEVICE_DENSITY;
-        BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON =  ((DEVICE_WIDTH_IN_DP - margin-70))*DEVICE_DENSITY;
+        float margin = getResources().getDimension(R.dimen.screen_margin_left) + getResources().getDimension(R.dimen.screen_margin_right);
+        BAR_MAX_HEIGHT_DEALS_FUNDED = ((DEVICE_WIDTH_IN_DP - margin) * 3 / 4) * DEVICE_DENSITY;
+        BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON = ((DEVICE_WIDTH_IN_DP - margin - 70)) * DEVICE_DENSITY;
 
 
-
-
-                initialiseViews();
+        initialiseViews();
         selectDealPipeline();
     }
 
@@ -121,6 +120,7 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
         mVersionTextview = (TextView) findViewById(R.id.version_textview);
         mLogoutTextview = (TextView) findViewById(R.id.logout_textview);
         mVersionTextview.setText(getResources().getString(R.string.sidemenu_version) + " " + BuildConfig.VERSION_NAME);
+        mLeftSidemenuOptionNav = (ImageView) findViewById(R.id.left_sidemenu_option_nav);
 
         // sidemenu rigth
         mSidemenuNotificationTextview = (TextView) findViewById(R.id.sidemenu_notification_textview);
@@ -131,6 +131,7 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
         mSidemenuShareFeedbackTextview = (TextView) findViewById(R.id.sidemenu_share_feedback_textview);
         mSidemenuShareAppTextview = (TextView) findViewById(R.id.sidemenu_shareapp_textview);
         mSidemenuRateUsTextview = (TextView) findViewById(R.id.sidemenu_rateus_textview);
+        mRightSidemenuOptionNav = (ImageView) findViewById(R.id.right_sidemenu_option_nav);
 
 
         mSidemenuNotificationTextview.setOnClickListener(this);
@@ -141,7 +142,7 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
         mSidemenuShareFeedbackTextview.setOnClickListener(this);
         mSidemenuShareAppTextview.setOnClickListener(this);
         mSidemenuRateUsTextview.setOnClickListener(this);
-
+        mLeftSidemenuOptionNav.setOnClickListener(this);
 
         mDealPipelineLinearLayout.setOnClickListener(this);
         mPerformanceComparisonLinearLayout.setOnClickListener(this);
@@ -157,6 +158,7 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
         mSidemenuCommunicationTextview.setOnClickListener(this);
         mUserProfileImageview.setOnClickListener(this);
         mProfileNameTextview.setOnClickListener(this);
+        mRightSidemenuOptionNav.setOnClickListener(this);
 
         UiUtils.regularTextView(new TextView[]{mBottomTabDealPipelineTextView, mBottomTabPerformanceComparisonTextView, mBottomTabDealsFundedTextView});
         UiUtils.mediumTextView(new TextView[]{(TextView) findViewById(R.id.title_textview)});
@@ -283,6 +285,14 @@ public class DashboardActivity extends BaseActivity implements View.OnClickListe
             case R.id.sidemenu_rateus_textview:
                 Toast.makeText(DashboardActivity.this, "rateus", Toast.LENGTH_SHORT).show();
                 break;
+
+            case R.id.right_sidemenu_option_nav:
+                mDrawerLayout.closeDrawer(Gravity.RIGHT);
+                return;
+
+            case R.id.left_sidemenu_option_nav:
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+                return;
 
             default:
                 break;

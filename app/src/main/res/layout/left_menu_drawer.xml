@@ -7,32 +7,47 @@
     android:background="@color/app_red"
     android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/profile_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/sidemenu_icons_padding"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_profile_imageview"
-            android:layout_width="@dimen/dashboard_profile_size_original"
-            android:layout_height="@dimen/dashboard_profile_size_original"
-            android:src="@drawable/splash_logo"/>
-
-        <TextView
-            android:id="@+id/profile_name_textview"
+        <ImageView
+            android:id="@+id/left_sidemenu_option_nav"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="right"
+            android:src="@drawable/icon_close"/>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:gravity="center"
-            android:paddingTop="@dimen/sidemenu_icons_padding"
-            android:text="Crest Hill"
-            android:textColor="@color/white_color"
-            android:textSize="@dimen/sidemenu_text_size" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:paddingTop="@dimen/sidemenu_icons_padding">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_profile_imageview"
+                android:layout_width="@dimen/dashboard_profile_size_original"
+                android:layout_height="@dimen/dashboard_profile_size_original"
+                android:src="@drawable/splash_logo" />
+
+            <TextView
+                android:id="@+id/profile_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingTop="@dimen/sidemenu_icons_padding"
+                android:text="Crest Hill"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/sidemenu_text_size" />
+        </LinearLayout>
+
+    </FrameLayout>
 
     <View
         android:id="@+id/top_view"
@@ -172,8 +187,6 @@
         android:text="Version"
         android:textColor="@color/white_color"
         android:textSize="@dimen/sidemenu_text_size" />
-
-
 
 
 </RelativeLayout>
