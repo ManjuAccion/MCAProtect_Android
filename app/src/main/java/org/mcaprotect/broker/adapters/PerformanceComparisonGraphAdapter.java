@@ -43,9 +43,15 @@ public class PerformanceComparisonGraphAdapter extends ArrayAdapter<PerformanceC
         LinearLayout firstBarLinearLayout = (LinearLayout)rowView.findViewById(R.id.first_bar_linearlayout);
         LinearLayout secondBarLinearLayout = (LinearLayout)rowView.findViewById(R.id.second_bar_linearlayout);
 
-        itemName.setText(mValues.get(position).getItemName());
-        firstItemValueTextView.setText("" + (int)mValues.get(position).getFirstItemValue());
-        secondItemValueTextView.setText("" + (int)mValues.get(position).getSecondItemValue());
+        itemName.setText(mValues.get(position).getCategoryName());
+        if(position == 2){
+
+            firstItemValueTextView.setText("$" + (int)mValues.get(position).getFirstItemValue());
+            secondItemValueTextView.setText("$" + (int)mValues.get(position).getSecondItemValue());
+        }else{
+            firstItemValueTextView.setText("" + (int)mValues.get(position).getFirstItemValue());
+            secondItemValueTextView.setText("" + (int)mValues.get(position).getSecondItemValue());
+        }
 
       /*  ViewTreeObserver viewTreeObserver = barParentLinearLayout.getViewTreeObserver();
         if(viewTreeObserver.isAlive()){
@@ -61,11 +67,11 @@ public class PerformanceComparisonGraphAdapter extends ArrayAdapter<PerformanceC
             });
         }*/
         ViewGroup.LayoutParams params =  firstBarLinearLayout.getLayoutParams();
-        params.width = (int)(DashboardActivity.BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON * mValues.get(position).getFirstBarHeight()/100);
+        params.width = (int)(DashboardActivity.BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON * mValues.get(position).getFirstBarHeightPercentage()/100);
         firstBarLinearLayout.setLayoutParams(params);
 
         ViewGroup.LayoutParams params2 =  secondBarLinearLayout.getLayoutParams();
-        params2.width = (int)(DashboardActivity.BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON * mValues.get(position).getSecondBarHeight()/100);
+        params2.width = (int)(DashboardActivity.BAR_MAX_HEIGHT_PERFORMANCE_COMPARISON * mValues.get(position).getSecondBarHeightPercentage()/100);
         secondBarLinearLayout.setLayoutParams(params2);
 
         return rowView;

@@ -59,6 +59,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="0"
+                android:textColor="@color/app_blue_80_percent"
                 android:textSize="@dimen/graph_bar_text_size" />
 
             <View
@@ -76,9 +77,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="($)"
-                android:layout_marginBottom="10dp"/>
+                android:textColor="@color/app_blue_80_percent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,7 +95,8 @@
                     android:layout_marginBottom="@dimen/graph_bar_text_margin_bottom"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:text="20,000"
+                    android:text="20k"
+                    android:textColor="@color/app_blue_80_percent"
                     android:textSize="@dimen/graph_bar_text_size" />
 
                 <View
@@ -107,7 +110,8 @@
                     android:layout_marginBottom="@dimen/graph_bar_text_margin_bottom"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:text="40,000"
+                    android:text="40k"
+                    android:textColor="@color/app_blue_80_percent"
                     android:textSize="@dimen/graph_bar_text_size" />
 
                 <View
@@ -121,7 +125,8 @@
                     android:layout_marginBottom="@dimen/graph_bar_text_margin_bottom"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:text="60,000"
+                    android:text="60k"
+                    android:textColor="@color/app_blue_80_percent"
                     android:textSize="@dimen/graph_bar_text_size" />
 
                 <View
@@ -135,7 +140,8 @@
                     android:layout_marginBottom="@dimen/graph_bar_text_margin_bottom"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:text="80,000"
+                    android:text="80k"
+                    android:textColor="@color/app_blue_80_percent"
                     android:textSize="@dimen/graph_bar_text_size" />
 
                 <View
@@ -149,7 +155,8 @@
                     android:layout_marginBottom="@dimen/graph_bar_text_margin_bottom"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:text="100,000"
+                    android:text="100k"
+                    android:textColor="@color/app_blue_80_percent"
                     android:textSize="@dimen/graph_bar_text_size" />
 
                 <View
@@ -177,7 +184,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/white_color"
         android:divider="@android:color/transparent"
-        android:dividerHeight="10dp" />
+        android:dividerHeight="0dp" />
 
 
 </RelativeLayout>

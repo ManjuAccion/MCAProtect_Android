@@ -81,10 +81,13 @@ public class DealsFundedFragment extends Fragment   {
 
         mDealsFundedGraphListView = (ListView)view.findViewById(R.id.deals_funded_graph_listview);
 
-
         ArrayList<DealsFundedGraph> list = new ArrayList<DealsFundedGraph>();
-        for (int i = 0; i < 20; i++) {
-            list.add(new DealsFundedGraph("John Doe Avinash Jadaun Ashish "+ i, 1000000 * Math.random(),0));
+        for (int i = 0; i < 4; i++) {
+            list.add(new DealsFundedGraph("John Doe", 1000000 * Math.random(),0));
+            list.add(new DealsFundedGraph("Clarie Desmond", 1000000 * Math.random(),0));
+            list.add(new DealsFundedGraph("Melanie Joel", 1000000 * Math.random(),0));
+            list.add(new DealsFundedGraph("Artisans", 1000000 * Math.random(),0));
+            list.add(new DealsFundedGraph("Steffie John", 1000000 * Math.random(),0));
         }
 
         double highest = 0;
@@ -99,10 +102,6 @@ public class DealsFundedFragment extends Fragment   {
             list.get(i).setBarHeight((list.get(i).getFundValue()/highest)*100);     }
         DealsFundedGraphAdapter cda = new DealsFundedGraphAdapter(getActivity(), list);
         mDealsFundedGraphListView.setAdapter(cda);
-
-
-
-
 
         UiUtils.regularTextView(new TextView[]{
                 (TextView)view.findViewById(R.id.screen_title_textview),

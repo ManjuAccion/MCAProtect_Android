@@ -62,8 +62,8 @@
 
                 <ImageView
                     android:id="@+id/start_time_iamgeview"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
                     android:background="@color/app_blue" />
 
                 <TextView
@@ -124,8 +124,8 @@
 
                 <ImageView
                     android:id="@+id/end_time_iamgeview"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
                     android:background="@color/app_red" />
 
                 <TextView

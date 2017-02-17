@@ -1,28 +1,29 @@
 package org.mcaprotect.broker.model;
 
 /**
- * Created by Accionlabs on 2/16/2017.
+ * Created by Avinash 1386 on 2/16/2017.
  */
 
 public class PerformanceComparisonGraph {
-    private String itemName;
-    private double  firstItemValue,secondItemValue;
-    private double firstBarHeight,secondBarHeight;
+    private String categoryName;
+    private double firstItemValue, secondItemValue, itemHighestValue;
+    private double firstBarHeightPercentage, secondBarHeightPercentage;
 
-    public PerformanceComparisonGraph(String itemName, double firstItemValue, double secondItemValue, double firstBarHeight, double secondBarHeight) {
-        this.itemName = itemName;
+    public PerformanceComparisonGraph(String categoryName, double firstItemValue, double secondItemValue, double itemHighestValue, double firstBarHeightPercentage, double secondBarHeightPercentage) {
+        this.categoryName = categoryName;
         this.firstItemValue = firstItemValue;
         this.secondItemValue = secondItemValue;
-        this.firstBarHeight = firstBarHeight;
-        this.secondBarHeight = secondBarHeight;
+        this.itemHighestValue = itemHighestValue;
+        this.firstBarHeightPercentage = firstBarHeightPercentage;
+        this.secondBarHeightPercentage = secondBarHeightPercentage;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public double getFirstItemValue() {
@@ -41,19 +42,27 @@ public class PerformanceComparisonGraph {
         this.secondItemValue = secondItemValue;
     }
 
-    public double getFirstBarHeight() {
-        return firstBarHeight;
+    public double getItemHighestValue() {
+        return itemHighestValue;
     }
 
-    public void setFirstBarHeight(double firstBarHeight) {
-        this.firstBarHeight = firstBarHeight;
+    public void setItemHighestValue(double itemHighestValue) {
+        this.itemHighestValue = itemHighestValue;
     }
 
-    public double getSecondBarHeight() {
-        return secondBarHeight;
+    public double getFirstBarHeightPercentage() {
+        return firstBarHeightPercentage;
     }
 
-    public void setSecondBarHeight(double secondBarHeight) {
-        this.secondBarHeight = secondBarHeight;
+    public void setFirstBarHeightPercentage(double firstBarHeightPercentage) {
+        this.firstBarHeightPercentage = firstBarHeightPercentage;
+    }
+
+    public double getSecondBarHeightPercentage() {
+        return secondBarHeightPercentage;
+    }
+
+    public void setSecondBarHeightPercentage(double secondBarHeightPercentage) {
+        this.secondBarHeightPercentage = secondBarHeightPercentage;
     }
 }

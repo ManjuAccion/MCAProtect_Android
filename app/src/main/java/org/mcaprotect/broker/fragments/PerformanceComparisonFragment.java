@@ -97,28 +97,20 @@ public class PerformanceComparisonFragment extends Fragment {
         mPerformanceComparisonGraphListView = (ListView)view.findViewById(R.id.performance_comparison_graph_listview);
 
 
-        ArrayList<PerformanceComparisonGraph> list = new ArrayList<PerformanceComparisonGraph>();
-        for (int i = 0; i < 20; i++) {
-            list.add(new PerformanceComparisonGraph("John Doe "+ i, 100 * Math.random(),100 * Math.random(),0,0));
-        }
 
-        double firstItemHighest = 0,secondItemHighest =0;
-        if(list.size()>0){
-            for (int i = 0;i<list.size();i++ ){
-                if(firstItemHighest < list.get(i).getFirstItemValue()){
-                    firstItemHighest = list.get(i).getFirstItemValue();
-                }
-                if(secondItemHighest < list.get(i).getSecondItemValue()){
-                    secondItemHighest = list.get(i).getSecondItemValue();
-                }
-            }
-        }
+        ArrayList<PerformanceComparisonGraph> list = new ArrayList<PerformanceComparisonGraph>();
+
+        list.add(new PerformanceComparisonGraph("# of Applications Submitted", 19 , 46, 100,0,0));
+        list.add(new PerformanceComparisonGraph("# of Deals Funded", 11 , 32, 100,0,0));
+        list.add(new PerformanceComparisonGraph("# of Avg. size of Deals Funded", 45719 , 79612, 100000,0,0));
+
+
         for (int i = 0;i<list.size();i++ ){
-            list.get(i).setFirstBarHeight((list.get(i).getFirstItemValue()/firstItemHighest)*100);
-            list.get(i).setSecondBarHeight((list.get(i).getSecondItemValue()/secondItemHighest)*100);
+            list.get(i).setFirstBarHeightPercentage((list.get(i).getFirstItemValue()/list.get(i).getItemHighestValue())*100);
+            list.get(i).setSecondBarHeightPercentage((list.get(i).getSecondItemValue()/list.get(i).getItemHighestValue())*100);
         }
-        PerformanceComparisonGraphAdapter cda = new PerformanceComparisonGraphAdapter(getActivity(), list);
-        mPerformanceComparisonGraphListView.setAdapter(cda);
+        PerformanceComparisonGraphAdapter performanceComparisonGraphAdapter = new PerformanceComparisonGraphAdapter(getActivity(), list);
+        mPerformanceComparisonGraphListView.setAdapter(performanceComparisonGraphAdapter);
 
 
 
